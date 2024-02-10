@@ -65,6 +65,12 @@ font-family: "Blender Pro Book", BlenderProBook, sans-serif;
   --color-gray-300: 30,42,56 !important;
   --color-gray-100: 21,31,46 !important;
   --color-gray-200: 11,22,34 !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent transparent;
+}
+
+::-webkit-scrollbar-button {
+display: none !important;
 }
 
 @keyframes pinkchange {
@@ -280,7 +286,7 @@ top: -20px;
 left: 0;
 color: #FF003C;
 width: 100%;
-background: rgb(0,0,0,0.5);
+background: rgb(0,0,0,0.6);
 border: 1px solid #FF003C;
 font-size: 12.5px;
 font-weight: 700;
@@ -332,6 +338,7 @@ padding: 5px 10px;
 color: #FF003C;
 overflow: hidden;
 }
+
 
 #nav > .wrap > .user > .user-wrap .dropdown .primary-links .primary-link:hover,
 #nav > .wrap > .user > .user-wrap .dropdown .primary-links .primary-link:hover svg {
@@ -387,7 +394,7 @@ left: 50px;
 height: 70px;
 width: 310px;
 z-index: 5;
-margin-top: 36px;
+margin-top: 27px;
 transition: width 0.5s ease-in-out;
 }
 
@@ -405,7 +412,8 @@ transition: content 1.5s ease-in-out;
 }
 
 #nav > .wrap .logo img:hover {
-content: url('https://www.cyberpunk.net/build/images/home8/logo-franchise-black-en@2x-06852b64.png');
+/*content: url('https://www.cyberpunk.net/build/images/home8/logo-franchise-black-en@2x-06852b64.png');*/
+filter: invert(1) grayscale(1) contrast(1.5);
 }
 
 #nav > .wrap::before {
@@ -502,24 +510,21 @@ overflow: hidden;
 }
 
 .page-content > .user .header-wrap::before {
-    content: '';
+        content: '';
     position: absolute;
     height: 100%;
     width: 100%;
+    background: rgb(0,0,0,0.1);
+    opacity: 1;
+    z-index: 1;
     /*background: url(https://i.postimg.cc/Y9c0xZYg/smoke02.gif);
     background-repeat: repeat-x;*/
-    background: rgb(0,0,0);
-    opacity: 0.2;
-    z-index: 1;
-}
-
-.page-content > .user .header-wrap::after {
-    content: '';
 }
 
 .page-content > .user .header-wrap .banner {
 background-image: url(https://i.imgur.com/oyADQc2.jpg) !important;
-background-color: rgba(0, 0, 0,0.1) !important;
+background-image: url(https://media.discordapp.net/attachments/929122804132098075/1154859530073690293/glowing-neon-5824x3264-12490.jpg) !important;
+background-color: rgba(0, 0, 0,0.25) !important;
 background-size: 110%;
 background-blend-mode: overlay;
 height: 100dvh;
@@ -586,6 +591,10 @@ height: 100%;
 width: 100%;
 }
 
+.page-content > .user .header-wrap .banner .container .banner-content:hover {
+
+}
+
 .page-content > .user .header-wrap .banner .container .banner-content .avatar {
 content: url(https://i.imgur.com/ISQBYy9.png);
 content: url(https://i.imgur.com/uahROvH.png);
@@ -594,6 +603,7 @@ content: url(https://i.imgur.com/fWs6k4K.png); /*rushia*/
 content: url(https://i.imgur.com/2yAWeRG.png); /*zero two*/
 content: url(https://i.imgur.com/ZOIoH3Y.png);
 content: url(https://i.imgur.com/AWjUtRP.png);
+content: url(https://i.imgur.com/4uf7vCq.png);
 position: absolute;
 inset: 0;
 margin: auto;
@@ -611,14 +621,6 @@ width: 350px;
 z-index: 2;
 }
 
-.page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover ~ .avatar {
-border: 20px solid;
-border-image-source: url(https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1492660/06bb85cd5f39a963a39ae9327ea4eb7da5cd30d4.png);
-border-image-slice: 27 fill;
-border-image-width: 20px;
-border-image-outset: 0px;
-}
-
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper {
 position: absolute;
 inset: 0;
@@ -629,12 +631,13 @@ height: 312px;
 width: 312px;
 padding: unset;
 cursor: pointer;
-background: rgb(0,0,0,0.5);
+background: rgb(0,0,0,0.65);
 }
 
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover {
-background: linear-gradient(to top, rgb(0,0,0,0.4), transparent, transparent, rgb(0,0,0,0.4));
+    background: radial-gradient(transparent, transparent, rgb(0,0,0,0.65), rgb(0,0,0,0.65));
+    backdrop-filter: saturate(1.2);
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover::after {
@@ -688,13 +691,13 @@ filter: drop-shadow(0px 0px 6px black);
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover .name {
 filter: drop-shadow(0px 0px 4px black);
-font-size: 50px
+font-size: 55px;
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover .name::before {
-content: '━ HE/HIM | INFP-T ━';
+content: '━ TAURUS | INFP-T ━';
 position: absolute;
-top: -10px;
+top: -8px;
 width: 100%;
 display: block;
 font-size: 15px;
@@ -730,9 +733,10 @@ opacity: 1;
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover .name::after {
-content: '━━ 04/24 ━━' !important;
-animation-play-state: paused;
+content: '━━━ HE/HIM ━━━' !important;
+font-size: 18px;
 filter: drop-shadow(0px 0px 10px rgb(var(--color-cyan)));
+font-weight: 100;
 }
 
 .user .header-wrap .banner .container .banner-content .name-wrapper:hover .name {
@@ -765,8 +769,40 @@ backdrop-filter: blur(5px);
 width: 91px !important;
 }
 
-.page-content > .user .header-wrap .banner .container .banner-content > .actions > .nav-btn:hover {
-animation: none;
+.page-content > .user .header-wrap .banner .container .banner-content > .actions >.nav-btn::before {
+content: 'doesn\'t follow you';
+    width: max-content;
+    position: absolute;
+    left: -25%;
+    bottom: -50%;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+    padding: 5px 10px;
+    color: rgb(255,0,60);
+    background: rgb(255,0,60,0.2);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.page-content > .user .header-wrap .banner .container .banner-content > .actions > .nav-btn:hover::before {
+opacity: 1;
+bottom: -100%;
+}
+
+.page-content > .user .header-wrap .banner .container .banner-content:has(.follower-badge) > .actions >.nav-btn::before {
+content: 'follows you';
+    pointer-events: none;
+    color: rgb(var(--color-cyan));
+    width: max-content;
+    background: rgb(var(--color-cyan),0.1);
+    opacity: 0;
+    transition: all 0.5s;
+    left: -5%;
+}
+
+.page-content > .user .header-wrap .banner .container .banner-content:has(.follower-badge) > .actions > .nav-btn:hover::before {
+opacity: 1;
+bottom: -100%;
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content > .name-wrapper:hover ~ .actions {
@@ -786,12 +822,11 @@ opacity: 0;
     width: max-content;
     transform: translate(-110px, -140px);
     background: transparent;
-    border: 1px solid rgb(var(--color-text));
-    color: rgb(var(--color-text));
+    color: rgb(var(--color-cyan));
     padding: 3px 5px;
     backdrop-filter: blur(20px);
     opacity: 0.8;
-    transition: all 0.5s ease-in-out;
+    display: none;
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content > .name-wrapper:hover ~ .follower-badge {
@@ -881,7 +916,7 @@ width: 180px;
     border: 1px solid rgb(var(--color-text));
     padding: 8px;
     content: attr(href);
-    color: rgb(var(--color-text),0.2);
+    color: rgb(var(--color-text),0.4);
     position: fixed;
     right: -2px;
     top: -37px;
@@ -968,21 +1003,22 @@ display: none;
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -1px;
+    left: 5px;
     margin: auto;
     width: 30px;
     height: 90px;
     padding: unset;
     font-size: 0;
-    border: 1px solid rgb(255,0,60);
+    border: 1px solid rgb(var(--color-cyan));
     transition: left 0.5s;
     opacity: 0.7;
     backdrop-filter: blur(8px);
     background: url(https://i.imgur.com/JmKE7ha.png);
+    background: url(https://i.imgur.com/EjbNkED.png);
     background-position: center;
     background-size: 70%;
     background-repeat: no-repeat;
-    box-shadow: 0px 5px 16px 6px rgb(255,0,60,0.3) inset;
+    box-shadow: 0px 5px 16px 2px rgb(var(--color-cyan),0.3) inset;
 }
 
 
@@ -1064,7 +1100,7 @@ max-height: 25px;
 order: -2;
 overflow: hidden;
 transition: max-height 1s ease-in-out;
-margin-bottom: 40px;
+margin-bottom: 100px;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about:hover {
@@ -1098,6 +1134,7 @@ border: 1px solid rgb(255,0,60);
 padding: 10px 5px;
 border-radius: 0;
     background: radial-gradient(rgb(255,0,60,0.2) 10%, transparent 80%);
+scrollbar-color: transparent transparent;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a {
@@ -1115,13 +1152,13 @@ display: inline-flex;
     padding: unset;
     font-size: 0;
     border: 1px solid cyan;
-    opacity: 0.6;
+    opacity: 0.8;
     backdrop-filter: blur(8px);
     background: url(https://i.imgur.com/MW1BKt9.png);
     background-position: right;
     background-size: contain;
     background-repeat: no-repeat;
-    box-shadow: 0px 5px 16px 6px rgb(var(--color-cyan),0.3) inset;
+    box-shadow: 0px 5px 16px 2px rgb(var(--color-cyan),0.3) inset;
     transition: all 0.5s ease-in-out, opacity 0s;
 }
 
@@ -1484,7 +1521,7 @@ margin: 0;
 white-space: nowrap;
 }
 
-.page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after {
+/*.page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after {
 display: inline-block;
 content: '';
 animation: slide 20s linear infinite;
@@ -1504,10 +1541,31 @@ animation: slide 20s linear infinite;
 filter: brightness(0.5);
 background-size: contain !important;
     background: url(https://i.imgur.com/Jvo0RmM.png);
+background-position: center;
+    background-repeat: no-repeat;
     width: 718px;
     height: 100px;
-    background-position: center;
-    background-repeat: no-repeat;
+}*/
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::before, .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after  {
+display: inline-block;
+    content: 'C\'est la vie ';
+    white-space: pre;
+    color: rgb(var(--color-text),0.2);
+    -webkit-text-stroke: 2px rgb(var(--color-text),0.6);
+    font-size: 100px;
+    font-family: 'Tomorrow';
+    animation: slide 20s linear infinite;
+    width: max-content;
+    height: 100px;
+    transition: all 0.5s;
+    opacity: 0.8;
+}
+
+.page-content > .user .content.container .overview .section .about:hover ~ .desktop:nth-child(2) > .activity-history::before, .page-content > .user .content.container .overview .section .about:hover ~ .desktop:nth-child(2) > .activity-history::after {
+color: rgb(255,0,60,0.2);
+    -webkit-text-stroke: 2px rgb(255,0,60,0.5);
+    opacity: 0.4;
 }
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history .history-day {
@@ -1525,7 +1583,7 @@ order: -1;
 overflow-x: scroll;
     overflow-y: visible;
 z-index: 5;
-
+scrollbar-color: transparent transparent;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) > .section-header {
@@ -1582,6 +1640,12 @@ grid-gap: unset;
 column-gap:  25px !important;
 direction: ltr !important;
 margin-bottom: 50px;
+scrollbar-color: transparent transparent;
+scrollbar-width: thin;
+}
+
+.page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap:hover {
+scrollbar-color: rgb(255,0,60,0.3) transparent;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)):hover .favourites-wrap {
@@ -1592,25 +1656,25 @@ border-bottom: 5px solid transparent;
   .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap::-webkit-scrollbar {
     width: 1px;
     height: 1px;
-background-color: rgb(255,0,60,0.3);
+background-color: rgb(255,0,60,0.3) !important;
   }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap::-webkit-scrollbar-thumb {
-background-color: rgb(255,0,60,0);
+background-color: rgb(255,0,60,0) !important;
 }
 
   .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap:hover::-webkit-scrollbar-thumb {
-    background-color: rgb(255,0,60,0.3);
+    background-color: rgb(255,0,60,0.3) !important;
 height: 1px;
     width: 1px;
   }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap::-webkit-scrollbar-track {
-    background-color: rgb(150,150,150,0.1);
+    background-color: rgb(150,150,150,0.1) !important;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap:hover::-webkit-scrollbar-track {
-    background-color: rgb(255,0,60,0.1);
+    background-color: rgb(255,0,60,0.1) !important;
 }
 
 .page-content > .user .content.container .overview .section .desktop .favourites-wrap .favourite {
@@ -1691,6 +1755,7 @@ right: -60px;
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(8)::after {
 font-size: 12px;
+text-align: center;
 clip-path: polygon(0% 0%, 100% 0%, 100% 86%, 92% 86%, 95% 100%, 84% 87%, 0 88%);
 padding: 5px;
 content: '';
@@ -1704,7 +1769,7 @@ content: '';
     width: 0;
     overflow: hidden;
     animation: chatbot 120s infinite;
-    max-width: 290px;
+    max-width: 250px;
     background: rgb(255,0,60,0.2);
     color: rgb(255,0,60);
     backdrop-filter: blur(5px);
@@ -1787,14 +1852,14 @@ animation: none;
 .page-content > .user .content.container .overview .section .desktop:nth-child(9)::after {
 content: ' ';
     position: absolute;
-    width: 50px;
+    width: 90px;
     height: 100%;
     display: block;
     background-color: rgb(255,255,255,0.05);
     top: 0;
+    left: -10px;
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
     z-index: -1;
-
 }
 
 @keyframes cyber-glitch-0
@@ -1980,8 +2045,8 @@ opacity: 0.25;
 
 }
 
-.page-content > .user .content.container .overview .section:nth-child(2) > .stats-wrap .content-wrap > .stats-wrap .stat:first-child .label {
-color: rgb(var(--color-text));
+.page-content > .user .content.container .overview .section:nth-child(2) > .stats-wrap .content-wrap > .stats-wrap .stat .label {
+color: rgb(var(--color-text-lighter));
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) > .stats-wrap .content-wrap > .stats-wrap .stat .value {
@@ -2090,7 +2155,7 @@ padding: 5px 0;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::after {
-border-radius: 7px;
+border-radius: 14px;
 padding: 5px 0;
     font-family: 'Tomorrow';
     border: 1px solid rgb(var(--color-pink));
@@ -2197,6 +2262,7 @@ position: static;
 
 .page-content > .user .content.container > .overview > .section .activity-feed-wrap:has(.activity-feed):has(.activity-entry.full-width):has(.reply-wrap) > .activity-edit {
 pointer-events: none;
+filter: grayscale(1);
 }
 
 .page-content > .user .content.container > .overview > .section .activity-feed-wrap:has(.activity-feed):has(.activity-entry.full-width):has(.reply-wrap) > .activity-edit::before {
@@ -2216,10 +2282,10 @@ content: 'close activity replies to send messages';
     height: 100%;
     position: fixed;
     z-index: 10000000;
-    overflow: scroll;
+    overflow-y: scroll;
     transform: none;
     padding-top: 25dvh;
-    transition: all 0.5s ease-in-out;
+    scrollbar-color: transparent transparent;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice)::before {
@@ -2228,30 +2294,21 @@ content: '[ WHAT\'S THE STORY, MORNING GLORY? ]';
     font-size: 2em;
     font-family: 'BlenderProBook';
     margin-bottom: 50px;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
     overflow: hidden;
     white-space: nowrap;
     border-right: .15em solid orange;
-    transition: all 0.5s;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) {
     background: radial-gradient(rgb(var(--color-blue),0.08) 10%, transparent 80%);
-    backdrop-filter: blur(15px) brightness(0.2);
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 10000000;
-    overflow: scroll;
-    transform: none;
-    padding-top: 25dvh;
     transition: all 0.5s ease-in-out;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview)::before {
-font-size: 0;
+color: transparent;
+border: none;
+animation: none;
 }
 
 @keyframes typing {
@@ -2291,9 +2348,8 @@ content: 'DO NOT MESSAGE ME ABOUT: \
     \a ii. Taxonomy of algae in marine ecosystems \
     \a iii. Quantum entanglement of particles \
     \a iv. Specifics of neurobiological mechanisms in dream formation \
-    \a v. Mathematical complexities of advanced calculus \
-    \a vi. Computational models for simulating quantum chromodynamics \
-    \a vii. How Doraemon isn\'t the greatest anime in existence';
+    \a v. Computational models for simulating quantum chromodynamics \
+    \a vi. How Doraemon isn\'t the greatest anime in existence';
 display: block;
     font-size: 13px;
     text-transform: none !important;
@@ -2336,18 +2392,12 @@ max-height: 300px;
 position: relative;
 overflow-y: scroll;
 color: white;
+transition: all 0.5s;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .input > textarea {
 width: 700px;
-max-height: 196px;
-position: relative;
-}
-
-.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) > .input > textarea {
-width: 700px;
-max-height: 196px;
-position: relative;
+max-height: 150px;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .input > textarea::placeholder {
@@ -2379,7 +2429,7 @@ color: rgb(var(--color-text));
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap {
 background: rgb(var(--color-blue),0.2);
-animation: arrive6 0.5s forwards;
+animation: arrive6 0.2s forwards;
 border: 1px solid rgb(var(--color-blue));
 overflow: visible;
 }
@@ -2419,7 +2469,7 @@ display: none !important;
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .name {
 color: rgb(var(--color-blue));
     position: fixed;
-    top: 20%;
+    top: 25%;
     left: 0;
     right: 0;
     margin: auto;
@@ -2493,7 +2543,7 @@ width: max-content;
 }
 
 .el-dialog__wrapper {
-backdrop-filter: blur(30px) brightness(0.5);
+backdrop-filter: blur(30px) brightness(0.3);
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry:has(.el-dialog__wrapper) {
@@ -2564,9 +2614,7 @@ background: black;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry >.wrap .activity-markdown > .markdown {
-overflow-y: visible !important;
-height: max-content;
-max-height: unset;
+max-height: 570px;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry >.wrap .activity-markdown > .markdown a {
@@ -2861,11 +2909,18 @@ border: 1px solid rgb(var(--color-blue),0.2);
 border-radius: 0;
 animation: slide-in-reply 0.5s ease-in-out forwards;
 z-index: 7;
+transition: all 0.3s ease-in-out;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply:hover {
+
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply > .header > .avatar {
 border-radius: 50%;
 border: 1px solid rgb(var(--color-blue));
+height: 30px;
+width: 30px;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .activity-edit {
@@ -2886,6 +2941,7 @@ animation: slide-in-reply 0.5s ease-in-out forwards;
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply:has(.el-dialog__wrapper) {
 animation: none;
 transform: none;
+scale: none;
 z-index: 8;
 }
 
@@ -3280,9 +3336,10 @@ position: relative;
     bottom: 0;
     opacity: 1;
     overflow: hidden;
-    transition: height 0.7s ease-in-out, padding 0.7s ease-in-out;
+    transition: height 0.7s ease-in-out, padding-block 0.7s ease-in-out;
     color: transparent;
-    padding: 0;
+    padding-block:  0;
+padding-inline: 5px;
     font-size: 0.7em;
     display: block;
     border-top: 2px solid rgb(255,0,60);
@@ -3294,7 +3351,8 @@ position: relative;
     height: 100%;
     color: rgb(var(--color-blue));
     background: linear-gradient(to top, rgb(var(--color-blue),0.5), rgb(0,0,0,0.8), rgb(0,0,0,0.8), rgb(0,0,0,0.8));
-    padding:  50% 5px;
+    padding-block:  43%;
+padding-inline: 5px;
     z-index: 1;
    text-shadow: 
                 0 0 10px rgba(var(--color-blue), 0.9);
@@ -3339,16 +3397,90 @@ margin: 100px 0;
 }
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .user-comments::before {
-content: 'You';
+content: '';
     position: absolute;
     width: 100%;
     margin: auto;
     text-align: center;
     font-size: 3.5em;
-opacity: 0;
 padding-left: 33px;
-animation: arrive 1.5s forwards 1s;
+animation: gibberishAnimation 2s linear forwards;
+color: rgb(var(--color-blue),0.8);
 }
+
+@keyframes gibberishAnimation {
+  0% {
+    content: 'Aristotle123';
+  }
+  5% {
+    content: 'Cleopatra567';
+  }
+  10% {
+    content: 'Leonardo987';
+  }
+  15% {
+    content: 'Galileo789';
+  }
+  20% {
+    content: 'Napoleon101';
+  }
+  25% {
+    content: 'Einstein456';
+  }
+  30% {
+    content: 'Mozart987';
+  }
+  35% {
+    content: 'Shakespeare356';
+  }
+  40% {
+    content: 'Newton000';
+  }
+  45% {
+    content: 'Genghis123';
+  }
+  50% {
+    content: 'Socrates456';
+  }
+  55% {
+    content: 'Columbus234';
+  }
+  60% {
+    content: 'Beethoven890';
+  }
+  65% {
+    content: 'Tesla123';
+  }
+  70% {
+    content: 'Lincoln456';
+  }
+  75% {
+    content: 'Copernicus789';
+  }
+  80% {
+    content: 'EulerPascal456';
+  }
+  85% {
+    content: 'DarwinNewton';
+  }
+  90% {
+    content: 'CleopatraCaesar';
+  }
+  92.5% {
+    content: 'MonaLisa999';
+  }
+  95% {
+    content: 'EiffelTower456';
+  }
+  97.5% {
+    content: 'Pythagoras123';
+  }
+  100% {
+    content: 'that\'s you';
+  }
+}
+
+
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .user-comments > .wrap {
 display: none;
@@ -4030,7 +4162,7 @@ background: url(https://data-card-for-spotify.herokuapp.com/api/card?user_id=zph
     position: relative;
     cursor: pointer;
     overflow: visible;
-    animation: arrive 2s ease-in-out forwards;
+    animation: arrive8 2s ease-in-out forwards;
     transition: all 0.5s ease-in-out;
 border: 1px solid rgb(110 0 26);
     border-right: 5px solid rgb(110,0,26);
@@ -4091,7 +4223,7 @@ background: url(https://64.media.tumblr.com/f3beddeb56ed281dcccf41868091051e/tum
     position: relative;
     cursor: pointer;
     overflow: visible;
-    animation: arrive 2s ease-in-out forwards;
+    animation: arrive8 2s ease-in-out forwards;
     transition: all 0.5s ease-in-out;
     order: -1;
 border: 1px solid rgb(110 0 26);
@@ -4162,7 +4294,18 @@ position: fixed;
     border: none;
     box-shadow: none;
     opacity: 0;
-    animation: arrive 0.5s ease-in-out 3s forwards;
+    animation: arrive8 0.5s ease-in-out 3s forwards;
+}
+
+@keyframes arrive8 {
+0% {
+display: none;
+opacity: 0;
+}
+100% {
+display: block;
+opacity: 1;
+}
 }
 
 .page-content > .user > .header-wrap > .nav-wrap:has(> .nav.container):has(.router-link-exact-active[href="/user/Kachori/reviews"]) .link:nth-child(1)::after {
@@ -4229,7 +4372,7 @@ filter: invert(1);
 }
 
 .page-content > .user .content.container > .user-reviews::before {                              
-content: 'ARCHIVE - BETA';
+content: 'ARCHIVE';
     position: absolute;
     inset: 0;
     height: 100%;
@@ -4279,7 +4422,7 @@ z-index: 0;
 }
 
 .page-content > .user .content.container > .user-reviews > .review-wrap {
-background: url(https://kusogaki.co/images/wrap_template.png);
+background: url(https://i.imgur.com/rOoVByE.png);
     font-size: 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4336,7 +4479,7 @@ font-size: 10px;
     position: fixed;
     inset: 0;
     margin: auto;
-    height: 500px;
+    height: 600px;
     width: 700px;
     background: inherit;
     background-size: contain;
@@ -4656,7 +4799,7 @@ font-size: 1.05em;
 
 * .markdown .embed {
 border: 1px solid rgb(var(--color-blue));
-background: transparent;
+background: rgb(var(--color-blue),0.2);
 position: relative;
 }
 
@@ -4685,7 +4828,7 @@ clip-path: polygon(100% 0, 100% 70%, 90% 100%, 0 100%, 0 0);
 background: rgb(var(--color-foreground),0.5) !important;
 backdrop-filter: blur(20px);
 border-radius: 0;
-border: 1px solid grey;
+border: 1px solid #414141;
 }
 
 > .el-dropdown-menu > .popper-arrow {
@@ -4698,7 +4841,7 @@ color: black;
 
 .el-dropdown-menu > .el-dropdown-menu__item--divided {
 margin-top: unset;
-border-top: 1px solid grey;
+border-top: 1px solid #414141;
 }
 
 .el-dropdown-menu > .el-dropdown-menu__item--divided::before {
@@ -4714,6 +4857,10 @@ display: none !important;
 }
 
 /* custom badges */
+
+.media[href="/anime/99750/I-Want-to-Eat-Your-Pancreas/"] {
+background-image: url("https://steamuserimages-a.akamaihd.net/ugc/955225420063844188/1B90234E4E68C2608AEBA700E3E331B0E8BFE969/?imw=1024&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false") !important;
+}
 
 .staff[href="/staff/241696/Suis"] {
 background-image: url("https://imgproxy.mapia.io/v3/VKTzYBsJ4MRvnutwUaMz_tcVwIPNUPOJ/g:ce/rs:fill:320:320:true/aHR0cHM6Ly9tZnMu/cGQubWFwaWEuaW8v/cHVibGljL2ZpbGUv/NGFiNGM1N2EwZjgz/MjE1OTliODlkMDQw/Y2NmMGIzMmMvZG93/bmxvYWQ_U2Vydmlj/ZS1Qcm92aWRlcj1t/bXM.jpg") !important;
@@ -4738,7 +4885,8 @@ background: transparent;
 
 
 .name[href="/user/Kachori/"]::after {
-content: 'ᓚᘏᗢ';
+font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
+content: '🐻‍❄️';
 color: white;
 background: rgb(var(--color-background));
     border-radius: 3px;
@@ -4747,7 +4895,7 @@ background: rgb(var(--color-background));
     letter-spacing: .03em;
     margin-left: 10px;
     overflow: hidden;
-    padding: 4px 7px;
+    padding: 4px 7px 1px 7px;
     animation: rainbow 20s infinite ease-in-out;
 }
 
@@ -4832,6 +4980,10 @@ margin-top: -70px;
 z-index: 1;
 }
 
+.hohPinned:not(:first-child) {
+display: none;
+}
+
 .hohPinned .wrap {
 background: transparent !important;
 }
@@ -4847,6 +4999,7 @@ display: none !important;
 
 .hohPinned .text > .activity-markdown .markdown {
 margin: 0;
+scrollbar-color: transparent transparent;
 }
 
 .hohPinned .text > .activity-markdown .markdown h1 {
@@ -4916,4 +5069,80 @@ display: none;
 
 .hohPinned .actions {
 display: none;
+}
+
+#app .tooltip {
+border-radius: 0;
+background: rgb(0,0,0,0.5);
+backdrop-filter: blur(10px);
+}
+
+#app .tooltip > .title {
+border-radius: 0;
+}
+
+#app .tooltip > .title > strong {
+font-size: 0;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#app .tooltip > .title > strong::after {
+content: 'Dates';
+font-size: 13px;
+}
+
+#app .tooltip > .content > .prev-name-container {
+justify-content: space-between;
+    align-items: baseline;
+}
+
+#app .tooltip > .content > .prev-name-container .prev-name {
+font-size: 0;
+margin: unset;
+}
+
+#app .tooltip > .content > .prev-name-container > .name-timestamp {
+font-size: 0;
+margin: unset;
+}
+
+#app .tooltip > .content > .prev-name-container > .name-timestamp::after {
+font-size: 12px;
+color: rgb(var(--color-white));
+}
+
+#app .tooltip > .content > .prev-name-container .prev-name::after {
+font-size: 10px;
+color: rgb(var(--color-text-lighter));
+}
+
+#app .tooltip > .content > .prev-name-container:nth-child(1) .prev-name::after {
+content: 'Joined';
+}
+
+#app .tooltip > .content > .prev-name-container:nth-child(1) .name-timestamp::after {
+content: 'March 4th, 2023';
+}
+
+#app .tooltip > .content > .prev-name-container:nth-child(2) .prev-name::after {
+content: 'Birth';
+}
+
+#app .tooltip > .content > .prev-name-container:nth-child(2) .name-timestamp::after {
+content: 'April 24th, 20XX';
+}
+
+.markdown .youtube .play {
+background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/YouTube_social_red_circle_%282017%29.svg/2048px-YouTube_social_red_circle_%282017%29.svg.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 15% !important;
+    filter: grayscale(1) !important;
+}
+
+.markdown video {
+max-width: 500px;
 }

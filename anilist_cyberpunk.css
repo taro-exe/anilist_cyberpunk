@@ -23,6 +23,14 @@ src:url(https://www.cyberpunk.net/build/fonts/BlenderPro-Book-a6763c9a.woff2) fo
 	}
 }
 
+html {
+scrollbar-color: rgb(252, 238, 10,0.5) transparent;
+}
+
+html:has(.activity-anime_list.full-width, .activity-manga_list.full-width) {
+scrollbar-color: rgb(255, 0, 60,0.5) transparent;
+}
+
 * {
 text-transform: uppercase !important;
 font-family: "Blender Pro Book", BlenderProBook, sans-serif;
@@ -66,7 +74,7 @@ font-family: "Blender Pro Book", BlenderProBook, sans-serif;
   --color-gray-100: 21,31,46 !important;
   --color-gray-200: 11,22,34 !important;
   scrollbar-width: thin !important;
-  scrollbar-color: transparent transparent;
+  scrollbar-color: rgb(var(--color-blue)) transparent;
 }
 
 ::-webkit-scrollbar-button {
@@ -514,7 +522,7 @@ overflow: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
-    background: rgb(0,0,0,0.1);
+    backdrop-filter: brightness(0.85);
     opacity: 1;
     z-index: 1;
     /*background: url(https://i.postimg.cc/Y9c0xZYg/smoke02.gif);
@@ -523,7 +531,7 @@ overflow: hidden;
 
 .page-content > .user .header-wrap .banner {
 background-image: url(https://i.imgur.com/oyADQc2.jpg) !important;
-background-image: url(https://media.discordapp.net/attachments/929122804132098075/1154859530073690293/glowing-neon-5824x3264-12490.jpg) !important;
+background-image: url(https://i.imgur.com/17Urqbv.jpeg) !important;
 background-color: rgba(0, 0, 0,0.25) !important;
 background-size: 110%;
 background-blend-mode: overlay;
@@ -531,27 +539,27 @@ height: 100dvh;
 width: 100dvw;
 position: relative;
 display: block;
-animation: backgroundzoom 60s linear infinite;
+animation: backgroundzoom 50s linear infinite;
 animation-direction: alternate;
 overflow: hidden;
 }
 
 @keyframes backgroundzoom {
 0% {
-background-size: 110%;
+background-size: 100%;
 }
 100% {
-background-size: 150%;
+background-size: 120%;
 }
 }
 
 .page-content > .user .header-wrap .banner::before {
-background-image: url(https://cdn.discordapp.com/attachments/929122804132098075/1151664315670204417/dots-top-401abdab.png),url(https://cdn.discordapp.com/attachments/929122804132098075/1151663122327818381/dots-bottom-27735777_1.png);
+background-image: url(https://cdn.discordapp.com/attachments/929122804132098075/1151664315670204417/dots-top-401abdab.png),url(https://cdn.discordapp.com/attachments/929122804132098075/1151663122327818381/dots-bottom-27735777_1.png), url(https://discord.c99.nl/widget/theme-4/639354644560085002.png), url(https://i.imgur.com/4uf7vCq.png), url(https://i.makeagif.com/media/1-16-2016/ufv4f8.gif), url(https://i.imgur.com/LBJZbdk.jpeg);
     background-position: 20px 20px,20px calc(100% - 183px);
     background-repeat: repeat-x, repeat-x;
     content: "";
     display: block;
-    display: none;
+    opacity: 0;
     height: 100%;
     position: absolute;
     top: 100px;
@@ -596,7 +604,6 @@ width: 100%;
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .avatar {
-content: url(https://i.imgur.com/ISQBYy9.png);
 content: url(https://i.imgur.com/uahROvH.png);
 content: url(https://i.imgur.com/WlYvkgU.png); /*next*/
 content: url(https://i.imgur.com/fWs6k4K.png); /*rushia*/
@@ -604,6 +611,9 @@ content: url(https://i.imgur.com/2yAWeRG.png); /*zero two*/
 content: url(https://i.imgur.com/ZOIoH3Y.png);
 content: url(https://i.imgur.com/AWjUtRP.png);
 content: url(https://i.imgur.com/4uf7vCq.png);
+content: url(https://imgur.com/R7u2Xl8.png);
+content: url(https://imgur.com/1OVKeqi.png);
+content: url(https://i.imgur.com/ISQBYy9.png);
 position: absolute;
 inset: 0;
 margin: auto;
@@ -637,6 +647,7 @@ background: rgb(0,0,0,0.65);
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover {
     background: radial-gradient(transparent, transparent, rgb(0,0,0,0.65), rgb(0,0,0,0.65));
+    background: linear-gradient(to top, rgb(0,0,0,0.9), transparent);
     backdrop-filter: saturate(1.2);
 }
 
@@ -666,7 +677,7 @@ opacity: 1;
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover::before {
 content: '';
 position: absolute;
-background-image: url(https://cdn.discordapp.com/attachments/929122804132098075/1152634357526306866/batt.png) !important;
+background-image: url(https://i.imgur.com/wzQB7Cp.png) !important;
 background-size: contain !important;
 background-repeat: no-repeat !important;
 background-position: center !important;
@@ -707,7 +718,7 @@ filter: drop-shadow(0px 0px 10px rgb(var(--color-cyan)));
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper .name::after {
-content: '━━ Captain Clumsy ━━';
+content: '━━ Hylian Spud ━━';
 position: absolute;
 bottom: -10px;
 width: 100%;
@@ -1015,6 +1026,7 @@ display: none;
     backdrop-filter: blur(8px);
     background: url(https://i.imgur.com/JmKE7ha.png);
     background: url(https://i.imgur.com/EjbNkED.png);
+    background: url(https://svgur.com/i/13_E.svg);
     background-position: center;
     background-size: 70%;
     background-repeat: no-repeat;
@@ -1054,21 +1066,22 @@ background-position: 1200px 0;
     background-attachment: fixed;
 }
 
-.page-content > .user .content.container:has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-feed):has(.activity-anime_list.full-width),
-.page-content > .user .content.container:has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-feed):has(.activity-manga_list.full-width) {
+.page-content > .user .content.container:has(.medialist.table) {
+background: black;
+}
+
+.page-content > .user .content.container:has(.activity-anime_list.full-width, .activity-manga_list.full-width) {
     background: radial-gradient(rgb(255,0,60,0.15) 10%, transparent 80%);
     background-position: 1200px 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.page-content > .user .content.container:has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-feed):has(.activity-anime_list.full-width) .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::before,
-.page-content > .user .content.container:has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-feed):has(.activity-manga_list.full-width) .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::before {
+.page-content > .user .content.container:has(.activity-anime_list.full-width, .activity-manga_list.full-width) .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::before {
     border: 1px solid rgb(255,0,60);
 }
 
-.page-content > .user .content.container:has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-feed):has(.activity-anime_list.full-width) .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::after,
-.page-content > .user .content.container:has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-feed):has(.activity-manga_list.full-width) .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::after {
+.page-content > .user .content.container:has(.activity-anime_list.full-width, .activity-manga_list.full-width) .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown::after {
     border: 1px solid rgb(255,0,60);
 }
 
@@ -1108,7 +1121,7 @@ max-height: 500px;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about::before {
-content: 'STATUS | HOVER TO DISPLAY';
+content: 'STATUS | HOVER TO SHOW';
 display: block;
 background: transparent;
 padding: 3px 20px 3px 5px;
@@ -1147,8 +1160,8 @@ display: inline-flex;
     inset: 0;
     transform: translate(-195px, -70px);
     margin: auto;
-    width: 40px;
-    height: 35px;
+    width: 37px;
+    height: 32px;
     padding: unset;
     font-size: 0;
     border: 1px solid cyan;
@@ -1185,7 +1198,7 @@ color: cyan;
 display: none;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] {
 filter: brightness(0.8);
 position: fixed;
 z-index: 100;
@@ -1198,14 +1211,14 @@ justify-content: flex-end;
     height: 190px;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] > a {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] > a {
 clip-path: polygon(100% 0, 100% 65%, 88% 100%, 0 100%, 0 0);
     background: rgb(0,0,0,0.3);
-    font-size: 0.9em;
+    font-size: 13px;
 color: rgb(var(--color-cyan));
     border-image-source: url(https://svgshare.com/i/xqU.svg);
     border-image-slice: 0 20 fill;
-    border-image-width: 0 20px;
+    border-image-width: 1px 20px;
 text-transform: uppercase !important;
 transform: translate(10px, 5px) rotate(-14deg);
 transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -1216,39 +1229,39 @@ margin: 1px 0px;
     backdrop-filter: blur(2px);
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] > a[href="https://myanimelist.net/profile/Kachori"] {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] > a[href="https://myanimelist.net/profile/Kachori"] {
 width: 170px;
 clip-path: polygon(100% 0, 100% 65%, 90% 100%, 0 100%, 0 0);
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] > a[href="https://myanimelist.net/profile/Kachori"]:hover {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] > a[href="https://myanimelist.net/profile/Kachori"]:hover {
 width: 190px;
 clip-path: polygon(100% 0, 100% 65%, 91% 100%, 0 94%, 0 0);
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] > a:hover {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] > a:hover {
 z-index: 2;
-transform: translate(20px, 5px) rotate(-14deg) scale(1.1);
+transform: translate(20px, 5px) rotate(-14deg) scale(1);
 clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
 width: 150px;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] > br {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] > br {
 display: none;
 }
 
-#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"] {
+#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links] {
 left: -180px;
 }
 
-#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"]::after {
+#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links]::after {
 animation: none;
 } 
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"]:hover {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links]:hover {
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"]::before {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links]::before {
     content: '';
     position: absolute;
     height: 250px;
@@ -1260,26 +1273,25 @@ animation: none;
     display: none;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links="true"]::after {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links]::after {
 animation: spin 9s linear infinite;
     z-index: -1;
     content: '';
     position: absolute;
     height: 200px;
     width: 200px;
-    background: url(https://i.imgur.com/mRC3LQW.png);
+    background: url(https://i.imgur.com/jv5ruJ8.png);
+    opacity: 0.5;
     background-size: cover;
-    left: -50px;
-    bottom: -50px;
+    left: -72px;
+    bottom: -60px;
 }
 
 /* discord add */
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://open.spotify.com/user/zphm4fzrs5rd2qrrk83vwyxe4?si=666d9a51e781483e"] {
-background: url(https://i.imgur.com/oEqMwKH.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://sptfy.com/kachori"] {
+background: url(https://i.imgur.com/1HhhjFH.png) center/cover no-repeat;
+background: url(https://i.imgur.com/61PgFd9.gif) center/cover no-repeat;
     height: 30px;
     width: 30px;
     display: block;
@@ -1292,29 +1304,16 @@ background: url(https://i.imgur.com/oEqMwKH.png);
     transition: all 0.1s ease-in-out;
 opacity: 0;
 animation: arrive 0.5s 2s forwards;
+border-radius: 50%;
+    border: 2px solid rgb(var(--color-cyan),0.5);
 }
 
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(3)
- {
-position: relative;
-order: -4;
-display: block;
-    height: 98px;
-    display: block;
-    width: 100%;
-    background: url(https://discord.c99.nl/widget/theme-4/639354644560085002.png), linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-background-position: center, 0% 50%;
-    background-size: contain, 300% 300%;
-    background-repeat: no-repeat;
-overflow: visible !important;
-animation: animatedgradient 3s ease alternate infinite;
-cursor: default;
-margin-top: 0px;
-margin-bottom: 40px;
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://sptfy.com/kachori"]:hover {
+background: url(https://i.imgur.com/LBJZbdk.jpeg) center/contain no-repeat;
+    background-color: white;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] {
 display: block;
 position: fixed;
 bottom: 0;
@@ -1327,7 +1326,7 @@ opacity: 0.8;
 z-index: 1;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div {
 position: absolute;
 width: 60px;
 height: 60px;
@@ -1335,72 +1334,72 @@ background-color: transparent;
 border: 6px solid rgb(255,255,255,0);
 }
 
-#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div {
+#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div {
 border: 6px solid rgb(var(--color-pink),0.6);
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(1) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(1) {
 top: 12%;
 left: 42%;
 animation: animate 10s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(2) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(2) {
 top: 70%;
 left: 50%;
 animation: animate 7s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(3) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(3) {
 top: 17%;
 left: 6%;
 animation: animate 9s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(4) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(4) {
 top: 20%;
 left: 60%;
 animation: animate 10s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(5) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(5) {
 top: 67%;
 left: 10%;
 animation: animate 6s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(6) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(6) {
 top: 80%;
 left: 70%;
 animation: animate 12s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(7) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(7) {
 top: 60%;
 left: 80%;
 animation: animate 15s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(8) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(8) {
 top: 32%;
 left: 25%;
 animation: animate 16s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(9) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(9) {
 top: 90%;
 left: 25%;
 animation: animate 8s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok="true"] div:nth-child(10) {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] div:nth-child(10) {
 top: 20%;
 left: 80%;
 animation: animate 5s linear infinite;
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-note="true"],
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-hide="true"] {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-note],
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-hide] {
 display: none;
 }
 
@@ -1415,14 +1414,92 @@ opacity: 0;
 }
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-foot="true"] {
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-foot] {
 position: absolute;
-z-index: 100;
-bottom: 0;
-height: 100px;
-width: 100%;
-background: red;
-display: none;
+    z-index: 100;
+    height: 88px;
+    width: 251px;
+    background: url(https://spotify-github-profile.vercel.app/api/view?uid=zphm4fzrs5rd2qrrk83vwyxe4&cover_image=true&theme=natemoo-re&show_offline=true&background_color=121212&interchange=false&bar_color=728aa1&bar_color_cover=true);
+    background-size: 5000%;
+    background-position: -95px;
+    animation: spotifyborder 3s linear alternate infinite;
+    inset: 0;
+    margin: auto;
+    transform: translateX(-300px);
+    clip-path: polygon(0% 0%, 0% 100%, 1% 100%, 1% 2%, 99% 2%, 99% 98%, 25% 99%, 25% 99%, 100% 100%, 100% 0%);
+    opacity: 1;
+    display: none;
+    filter: blur(30px) contrast(2) brightness(2) saturate(2);
+    pointer-events: none;
+}
+
+@keyframes spotifyborder {
+0% {
+background-position: -600px;
+}
+100% {
+
+background-position: -400px;
+}
+}
+
+#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord] {
+right: -80px;
+opacity: 0;
+}
+
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord] {
+position: fixed;
+    bottom: 10px;
+    right: 5px;
+    height: 60px;
+    width: 60px;
+    background: url(https://i.imgur.com/LIkMkbM.png) center/70% no-repeat;
+    background: url(https://svgur.com/i/13ZL.svg) center/70% no-repeat;
+    background-color: rgb(var(--color-cyan),0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 20px 20px 0 20px;
+    z-index: 1000;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.5s;
+     border: 2px solid rgb(var(--color-cyan),0.3);
+}
+
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover {
+width: 350px;
+    height: 85px;
+    background-image: url(https://discord.c99.nl/widget/theme-4/639354644560085002.png);
+    background-position: 15px;
+    background-size: 92%;
+    opacity: 1;
+border: 2px solid rgb(var(--color-cyan),0.3);
+}
+
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover::before {
+content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url(https://i.makeagif.com/media/1-16-2016/ufv4f8.gif);
+    left: 0;
+    background-size: 200%;
+    background-position: center;
+    opacity: 0.06;
+}
+
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover a {
+display: block;
+    height: 27px;
+    width: 27px;
+    background: url(https://i.imgur.com/2aqMx11.png) center/cover no-repeat;
+    position: absolute;
+    bottom: 15%;
+    right: 15px;
+}
+
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover a:hover {
+scale: 1.2;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video {
@@ -1452,38 +1529,6 @@ background: transparent;
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-time-remaining-display,
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-volume-control-hover-background {
   display: none;
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(3):hover {
--webkit-box-reflect: below 1px linear-gradient(to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(3)::before {
-content: '> DISCORD STATUS <';
-display: flex;
-    align-items: center;
-    justify-content: center;
-font-size: 23px;
-height: 100%;
-width: 100%;
-position: absolute;
-background: black;
-transition: width 0.8s ease-in-out;
-color: rgb(60,60,60);
-white-space: nowrap;
-overflow: hidden;
-    background: linear-gradient(rgb(10,10,10), rgb(20,20,20));
-    clip-path: polygon(100% 0, 150% 32%, 99% 32%, 99% 75%, 100% 75%, 150% 150%, -50% 150%, -50% 0%);
-filter: brightness(0.8);
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(3):hover::before {
-content: '';
-width: 0;
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview {
-display: none;
 }
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(2) {
@@ -1549,7 +1594,7 @@ background-position: center;
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::before, .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after  {
 display: inline-block;
-    content: 'C\'est la vie ';
+    content: 'cœur fidèle ';
     white-space: pre;
     color: rgb(var(--color-text),0.2);
     -webkit-text-stroke: 2px rgb(var(--color-text),0.6);
@@ -1572,16 +1617,11 @@ color: rgb(255,0,60,0.2);
 display: none;
 }
 
-.page-content > .user .content.container .overview .section .desktop:nth-child(4),
-.page-content > .user .content.container .overview .section .desktop:nth-child(5),
-.page-content > .user .content.container .overview .section .desktop:nth-child(6),
-.page-content > .user .content.container .overview .section .desktop:nth-child(7) {
+.page-content > .user .content.container .overview .section .desktop:is(:nth-child(4),:nth-child(5),:nth-child(6),:nth-child(7)) {
 order: -1;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) {
-overflow-x: scroll;
-    overflow-y: visible;
 z-index: 5;
 scrollbar-color: transparent transparent;
 }
@@ -1598,14 +1638,26 @@ text-stroke: 0.3px rgb(128, 128, 128,0.2);
 transform: translateY(142%);
 transition: all 0.5s ease-in-out;
 z-index: 1;
+pointer-events: none;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)):hover > .section-header {
 text-stroke: 0.3px rgb(255,0,60,0.5);
 -webkit-text-stroke: 0.3px rgb(255,0,60,0.5);
 text-shadow: 0 0 10px rgb(255,0,60,0.4);
-transform: translateY(-65%);
-font-size: 50px;
+transform: translateY(-90%);
+font-size: 45px;
+}
+
+.page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)):hover > .section-header::before {
+    content: 'Shift+Scroll';
+    font-family: 'Blender Pro Book';
+    color: rgb(255,0,60,.3);
+    -webkit-text-stroke: transparent;
+    position: absolute;
+    font-size: 12px;
+    transform: translate(0px, -5px);
+    display: none;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)):hover > .section-header::after {
@@ -1624,13 +1676,93 @@ display: none;
 display: none !important;
 }
 
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) {
+
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) * {
+border-radius: 0;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview {
+background: transparent;
+filter: grayscale(1);
+opacity: 0.5;
+transition: all 0.5s ease-in-out;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview::before {
+content: 'Genre Overview';
+    font-size: 2.5em;
+    text-align: center;
+    width: 100%;
+    display: block;
+color: rgb(var(--color-text));
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview:hover {
+filter: grayscale(0);
+opacity: 1;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre > .name {
+color: rgb(var(--color-text));
+font-size: 1.1em;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:first-child > .name {
+background: rgb(var(--color-cyan),0.25) !important;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:nth-child(2) > .name {
+background: rgb(var(--color-cyan),0.22) !important;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:nth-child(3) > .name {
+background: rgb(var(--color-cyan),0.19) !important;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:nth-child(4) > .name {
+background: rgb(var(--color-cyan),0.16) !important;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:last-child > .name {
+background: rgb(var(--color-cyan),0.13) !important;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre > .amount {
+color: rgb(var(--color-cyan),0.5) !important;
+    height: 0;
+    overflow: hidden;
+margin-bottom: 5px;
+transition: all 0.3s ease-in-out;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:hover > .amount {
+height: 16px;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre > .amount > .label {
+color: rgb(var(--color-text-lighter)) !important;
+}
+
+.page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .percentage-bar {
+display: none;
+}
+
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap {
 border-bottom: 3px solid rgb(var(--color-pink),0);
 display: flex !important;
 justify-content: flex-start;
 align-items: center;
     overflow-x: scroll;
-    overflow-y: hide;
+    overflow-y: hidden;
 padding: 10px 10px 0px 10px !important;
 border-radius: 0;
 height: 210px;
@@ -1642,6 +1774,8 @@ direction: ltr !important;
 margin-bottom: 50px;
 scrollbar-color: transparent transparent;
 scrollbar-width: thin;
+scroll-snap-type: x mandatory;
+scroll-behavior: smooth;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)) .favourites-wrap:hover {
@@ -1684,16 +1818,17 @@ height: 1px;
   border-radius: 0;
   position: relative;
   background-size: cover;
-  transition: background-size 0.5s ease-in-out, height 0.5s ease-in-out, width 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background-color: transparent;
  margin-right: 0px !important;
  filter: brightness(80%);
+scroll-snap-align: center;
 }
 
 .page-content > .user .content.container .overview .section .desktop .favourites-wrap .favourite:hover {
 border: 3px solid rgb(var(--color-cyan));
 height: 140px;
-width: 120px;
+width: 110px;
 filter: brightness(100%);
 }
 
@@ -1747,6 +1882,7 @@ background-size: contain;
 background-repeat: no-repeat;
 cursor: pointer;
 transition: all 0.5s ease-in-out;
+display: none;
 }
 
 #nav:not(.transparent) ~ .page-content > .user .content.container .overview .section .desktop:nth-child(8) {
@@ -1778,6 +1914,7 @@ content: '';
 .page-content > .user .content.container .overview .section .desktop:nth-child(8):hover::after {
 visibility: visible;
 width: max-content;
+padding-bottom: 10px;
 }
 
 @keyframes chatbot {
@@ -1843,6 +1980,7 @@ transition: height 0.5s ease-in-out;
 border-width: 2px;
     border-style: solid;
     border-image: linear-gradient(to top right, transparent, rgb(var(--color-cyan))) 1;
+border: 2px solid rgb(var(--color-cyan),0.3);
 }
 
 #nav:not(.transparent) ~ .page-content > .user .content.container .overview .section .desktop:nth-child(9) {
@@ -1852,14 +1990,26 @@ animation: none;
 .page-content > .user .content.container .overview .section .desktop:nth-child(9)::after {
 content: ' ';
     position: absolute;
-    width: 90px;
-    height: 100%;
+    width: 100%;
+    height: 30%;
     display: block;
-    background-color: rgb(255,255,255,0.05);
-    top: 0;
-    left: -10px;
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    background: inherit;
+    background-size: 500%;
+    background-position: -40px;
+    bottom: 0;
+    left: 0;
     z-index: -1;
+    filter: blur(20px) brightness(1.5) saturate(1.5);
+    opacity: 0.4;
+}
+
+@keyframes opacityanimation {
+0% {
+opacity: 0.2;
+}
+100% {
+opacity: 0.4;
+}
 }
 
 @keyframes cyber-glitch-0
@@ -2217,19 +2367,13 @@ background: rgb(0,0,0,0.02);
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(> .preview)::after {
-background-image: url(https://www.cyberpunk.net/build/images/dots-top-401abdab.png);
-    background-repeat: repeat-x, repeat-x;
-    content: "";
-    display: block;
-    height: 100%;
-    pointer-events: none;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    background-position: 20px 20px, 20px calc(100% - 30px);
-    opacity: 0;
-    animation: arrive5 1s linear forwards;
+    content: '✓ connected ' !important;
+    background: url(https://i.imgur.com/ISQBYy9.png) 10px -20px/40% no-repeat !important;
+    background-color: rgb(var(--color-blue),0.1) !important;
+    justify-content: flex-end;
+    border: 1px solid rgb(var(--color-blue),0.5) !important;
+    color: rgb(var(--color-blue)) !important;
+    animation: arrive 1s ease-in-out reverse forwards 1s !important;
 }
 
 @keyframes arrive5 {
@@ -2242,8 +2386,16 @@ opacity: 0.5;
 }
 
 .page-content:has(.user):has(.content):has(.container):has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-edit):has(.rules-notice) {
-position: absolute;
+position: fixed;
 z-index: 1500;
+}
+
+html:has(.page-content):has(.user):has(.content):has(.container):has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-edit):has(.rules-notice) {
+overflow: hidden;
+}
+
+html:has(.page-content):has(.user):has(.content):has(.container):has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-entry):has(.reply-wrap):has(.activity-replies):has(.activity-edit):has(.rules-notice) {
+overflow: unset;
 }
 
 .page-content:has(.user):has(.content):has(.container):has(.overview):has(.section):has(.activity-feed-wrap):has(.activity-entry):has(.reply-wrap):has(.activity-replies):has(.activity-edit):has(.rules-notice){
@@ -2266,7 +2418,7 @@ filter: grayscale(1);
 }
 
 .page-content > .user .content.container > .overview > .section .activity-feed-wrap:has(.activity-feed):has(.activity-entry.full-width):has(.reply-wrap) > .activity-edit::before {
-content: 'close activity replies to send messages';
+content: 'close all activity replies';
     position: absolute;
     top: 8px;
     background: black;
@@ -2275,7 +2427,8 @@ content: 'close activity replies to send messages';
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) {
-    backdrop-filter: blur(15px) brightness(0.2);
+    backdrop-filter: blur(15px) brightness(0.15);
+    background: linear-gradient(to bottom, rgb(var(--color-cyan),0.1), transparent);
     top: 0;
     bottom: 0;
     width: 100%;
@@ -2285,13 +2438,13 @@ content: 'close activity replies to send messages';
     overflow-y: scroll;
     transform: none;
     padding-top: 25dvh;
-    scrollbar-color: transparent transparent;
+    scrollbar-color: rgb(var(--color-blue),0.5) transparent;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice)::before {
 content: '[ WHAT\'S THE STORY, MORNING GLORY? ]';
     color: rgb(var(--color-text));
-    font-size: 2em;
+    font-size: 1.8em;
     font-family: 'BlenderProBook';
     margin-bottom: 50px;
     animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
@@ -2300,8 +2453,29 @@ content: '[ WHAT\'S THE STORY, MORNING GLORY? ]';
     border-right: .15em solid orange;
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice)::after {
+   content: ' ● AVAILABLE';
+    color: rgb(var(--color-cyan));
+    white-space: pre;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 200px;
+    background: url(https://i.imgur.com/ISQBYy9.png) 110px -20px/40% no-repeat;
+    background-color: rgb(var(--color-cyan),0.1);
+    border: 1px solid rgb(var(--color-cyan),0.5);
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    transition: all 0.5s ease-in-out;
+    padding: 15px;
+    font-size: 13px;
+    animation: none;
+    display: none;
+}
+
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) {
-    background: radial-gradient(rgb(var(--color-blue),0.08) 10%, transparent 80%);
+    background: radial-gradient(rgb(var(--color-blue),0.1) 10%, rgb(0,0,0,0.9) 80%);
     transition: all 0.5s ease-in-out;
 }
 
@@ -2311,14 +2485,18 @@ border: none;
 animation: none;
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) > .input.el-textarea {
+
+}
+
 @keyframes typing {
   from { width: 0 }
-  to { width: 518.38px; }
+  to { width: 466.21px; }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: orange; }
+  50% { border-color: cyan; }
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .actions > .button.cancel {
@@ -2343,26 +2521,35 @@ order: 3;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit .rules-notice::after {
-content: 'DO NOT MESSAGE ME ABOUT: \
-    \a\a i. The intricate nuances of 18th-century French literature \
-    \a ii. Taxonomy of algae in marine ecosystems \
-    \a iii. Quantum entanglement of particles \
-    \a iv. Specifics of neurobiological mechanisms in dream formation \
-    \a v. Computational models for simulating quantum chromodynamics \
-    \a vi. How Doraemon isn\'t the greatest anime in existence';
+content: 'RULES, GUIDELINES, YADAYADA \
+\a\a ━━━━━━━━━━━━ \
+\a 1. Don\'t be an a**hole \
+\a 2. English only \
+\a 3. Spam all you want \
+\a 4. Even if you don\'t have anything specific to talk about, feel free to drop a hello. I\'d appreciate that.';
 display: block;
     font-size: 13px;
     text-transform: none !important;
-    border-radius: 10px;
-    padding: 2px 10px;
-    transition: all 0.5s;
-    color: rgb(var(--color-text));
-    white-space: pre;
+    border-radius: 5px;
+    transition: max-height 0.5s;
+    color: rgb(var(--color-cyan));
+    background: rgb(var(--color-cyan),0.08);
+    padding: 10px 5px;
+    white-space: pre-line;
     text-align: center;
+   max-height: 37px;
+   width: 218px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgb(var(--color-cyan),0.5);
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit .rules-notice:hover::after {
+max-height: 180px;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) > .rules-notice::after {
-color: transparent;
+visibility: hidden;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .markdown-editor {
@@ -2372,6 +2559,10 @@ text-align: center;
 display: flex;
 justify-content: space-evenly;
 background: transparent;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .markdown-editor * {
+--color-blue: 0,255,255 !important;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap .activity-edit > .input {
@@ -2402,6 +2593,7 @@ max-height: 150px;
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .input > textarea::placeholder {
 color: transparent;
+font-size: 0;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .input > textarea::placeholder {
@@ -2428,7 +2620,7 @@ color: rgb(var(--color-text));
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap {
-background: rgb(var(--color-blue),0.2);
+background: rgb(var(--color-blue),0.1);
 animation: arrive6 0.2s forwards;
 border: 1px solid rgb(var(--color-blue));
 overflow: visible;
@@ -2449,17 +2641,17 @@ padding: unset;
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header {
 position: absolute;
-    left: -60px;
+    left: -65px;
     top: 0;
     background: rgb(var(--color-blue),0.2);
     border: 1px solid rgb(var(--color-blue));
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .avatar {
-border-radius: 3px;
-    height: 50px;
-    width: 50px;
+    height: 55px;
+    width: 55px;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .donator-badge {
@@ -2467,7 +2659,7 @@ display: none !important;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .name {
-color: rgb(var(--color-blue));
+color: rgb(var(--color-blue),0.5);
     position: fixed;
     top: 25%;
     left: 0;
@@ -2477,6 +2669,7 @@ color: rgb(var(--color-blue));
     font-size: 35px;
    pointer-events: none;
     font-weight: normal;
+    animation: arrive 1s ease-in-out;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .name::before {
@@ -2495,6 +2688,7 @@ font-size: 35px;
 color: rgb(var(--color-blue),0.5);
 margin: unset;
 padding: unset;
+bottom: unset;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap .activity-edit > .activity-entry >.wrap .activity-markdown {
@@ -2566,11 +2760,11 @@ animation: none;
 background: black;
 z-index: 1;
 width: 436px;
-height: 100px;
+height: 103px;
 border-radius: 0;
 border-style: solid;
   border-width: 1px;
-  border-image: linear-gradient(45deg, grey, transparent) 1;
+  border-image: linear-gradient(to right, grey, transparent) 1;
 position: relative;
 border-left: 3px solid rgb(255,0,60);
 clip-path: polygon(100% 0, 100% 89%, 99% 100%, 0 100%, 0 0);
@@ -2641,7 +2835,7 @@ opacity: 1;
 .likes > .like-wrap .users {
 background: transparent;
 border-radius: 0;
-transition: 0.5s !important;
+transition: 0.5s, width 0s !important;
 }
 
 .likes > .like-wrap .users > .user {
@@ -2675,7 +2869,7 @@ justify-content: space-between;
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry > .wrap > .list > .cover {
     order: 2;
-    height: 100px;
+    height: 100%;
 width: 100px;
     max-width: unset;
     z-index: 1;
@@ -2691,10 +2885,10 @@ position: relative;
 position: absolute;
     width: 100%;
     background: linear-gradient(to left,transparent,#000);
-    bottom: 0;
-    content: "";
+    top: 0;
+    content: '';
     display: block;
-    height: 100px;
+    height: 100%;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry > .wrap > .list > .details > .status {
@@ -2808,7 +3002,7 @@ text-wrap: nowrap;
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text .wrap:hover *,
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text.full-width * {
-    --color-blue: 214,0,255;
+    --color-blue: 200,0,210;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text {
@@ -2900,7 +3094,7 @@ visibility: visible;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap {
-width: 70%;
+width: 80%;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply {
@@ -3003,7 +3197,7 @@ border-right: 3px solid rgb(var(--color-blue));
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-message > .wrap:hover *,
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-message.full-width * {
---color-blue: 252, 238, 10;
+--color-blue: 222, 208, 5;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-message > .wrap {
@@ -3138,7 +3332,7 @@ background: radial-gradient(rgb(255,0,60,0.1) 10%, transparent 80%);
     position: absolute;
     height: 450px;
     width: 450px;
-    border: 10px solid rgb(255,0,60,0.05);
+    border: 10px solid rgb(10,0,0);
     left: 0;
     right: 0;
     top: -250px;
@@ -3152,7 +3346,7 @@ background: radial-gradient(rgb(255,0,60,0.1) 10%, transparent 80%);
     position: absolute;
     height: 450px;
     width: 450px;
-    border: 10px solid rgb(255,0,60,0.05);
+    border: 10px solid rgb(10,0,0);
     left: 0;
     right: 0;
     top: -250px;
@@ -3500,7 +3694,13 @@ position: relative;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .scroller > .load-more:hover {
-border: 1px solid rgb(var(--color-blue));
+border: 1px solid rgb(var(--color-pink));
+color: rgb(var(--color-pink));
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap:has(.activity-anime_list.full-width, .activity-manga_list.full-width) > .scroller > .load-more:hover {
+border: 1px solid rgb(255,0,60);
+color: rgb(255,0,60);
 }
 
 /* media list */
@@ -4071,7 +4271,14 @@ display: none;
 
 /**/
 
+.page-content:has(.user):has(.content):has(> .favourites) ~ .wrap:has(.footer),
+.page-content:has(.user):has(.content):has(> .medialist) ~ .wrap:has(.footer),
+.page-content:has(.user):has(.content):has(> .stats) ~ .wrap:has(.footer) {
+display: none;
+}
+
 .page-content:has(.user):has(.content):has(.user-reviews) ~ .wrap:has(.footer) {
+display: unset;
 position: fixed;
 top: 0;
 z-index: 1000000000;
@@ -4085,6 +4292,11 @@ display: none;
 
 .page-content:has(.user):has(.content):has(.user-reviews) ~ .wrap:has(.footer) > .footer {
 background: transparent;
+display: unset;
+}
+
+.page-content:has(.user):has(.content):has(.user-reviews) ~ .wrap:has(.footer) > .footer::before {
+display: none;
 }
 
 .page-content:has(.user):has(.content):has(.user-reviews) ~ .wrap:has(.footer) > .footer::after {
@@ -4326,7 +4538,7 @@ top: 0;
 left: 0;
 min-height: 100%;
 height: max-content;
-background: linear-gradient(to bottom, rgb(255,0,60,0.15) 10%, transparent 80%);
+background: linear-gradient(to bottom, rgb(255,0,60,0.1) 10%, transparent 80%);
 backdrop-filter: blur(15px) brightness(0.08);
 z-index: 1000;
 animation: arrive7 1s ease-in-out forwards;
@@ -4694,29 +4906,79 @@ z-index: 1;
 
 .transparent > .wrap .footer[data-v-0f519cab] {
 position: relative;
-background: rgb(var(--color-blue));
+background: black;
 }
 
 .transparent > .wrap .footer[data-v-0f519cab] a {
-color: black;
+color: rgb(var(--color-text),0.6);
 }
 
-.transparent > .wrap > .footer[data-v-0f519cab]::after {
-background-image: url(https://svgshare.com/i/xrb.svg);
-    top:-45px;
+.transparent > .wrap .footer[data-v-0f519cab] a:hover {
+color: rgb(var(--color-cyan));
+}
+
+.transparent > .wrap > .footer[data-v-0f519cab]::before {
+    background: linear-gradient(to bottom, rgb(20,10,28), black); 
+    top: -20px;
     content: "";
-    height: 48px;
+    height: 125px;
     left: 0px;
     position: absolute;
     width: 100%;
 }
 
-.transparent > .wrap > .footer a::before {
-    filter: grayscale(1) contrast(121) invert(1);
+.page-content:has(.user):has(.content.container):has(.user-social) ~ .wrap > .footer[data-v-0f519cab]::before,
+.page-content:has(.user):has(.content.container):has(.activity-anime_list.full-width, .activity-manga_list.full-width) ~ .wrap > .footer[data-v-0f519cab]::before
+{
+background: linear-gradient(to bottom, rgb(30,0,0), black);   
 }
 
-.transparent > .wrap > .footer a:is(:nth-child(3), :nth-child(4))::before {
-    filter: grayscale(1) contrast(121) invert(0);
+.page-content:has(.user):has(.content.container):has(.medialist) ~ .wrap > .footer[data-v-0f519cab]::before,
+.page-content:has(.user):has(.content.container):has(.stats):has(.filters) ~ .wrap > .footer[data-v-0f519cab]::before {
+background: linear-gradient(to bottom, rgb(20,15,5), black);
+}
+
+.page-content:has(.user):has(.content.container):has(.medialist.cards) ~ .wrap > .footer[data-v-0f519cab]::before {
+background: linear-gradient(to bottom, rgb(0,20,20), black);
+}
+
+.transparent > .wrap > .footer[data-v-0f519cab]::after {
+    content: '';
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: rgb(var(--color-cyan));
+    position: absolute;
+    bottom: 10px;
+    font-size: 30px;
+}
+
+.transparent > .wrap > .footer a::before {
+opacity: 0;
+position: absolute;
+    margin: auto;
+    top: -5px;
+left: -45px;
+}
+
+.transparent > .wrap > .footer a:hover::before {
+opacity: 0.15;
+}
+
+.footer [href="https://discord.gg/TF428cr"]::before {
+    content: url(https://i.imgur.com/FRDcOj0.png);
+}
+
+.footer [href="https://twitter.com/AniListco"]::before {
+content: url(https://i.imgur.com/SZYD8JW.png);
+}
+
+.footer [href="https://www.facebook.com/AniListco"]::before {
+content: url(https://i.imgur.com/v5nBiYN.png);
+}
+
+.footer [href="https://github.com/AniList"]::before {
+content: url(https://i.imgur.com/1JebG6e.png);
 }
 
 .transparent > .wrap .footer[data-v-0f519cab] > .container > .links {
@@ -4724,7 +4986,53 @@ margin: auto;
 transform: none !important;
 }
 
+.transparent > .wrap .footer[data-v-0f519cab] > .container > .links > section:nth-child(3) {
+    order: 1;
+}
+
 .transparent > .wrap .footer[data-v-0f519cab] > .container > .theme-selector {
+background: url(https://windowscustomization.com/wp-content/uploads/2019/06/Cyberpunk-2077-Audio-Responsive.gif);
+    background-size: contain;
+background-repeat: no-repeat;
+width: 300px;
+cursor: pointer;
+}
+
+.transparent > .wrap .footer[data-v-0f519cab] > .container > .theme-selector::before {
+    content: '';
+    display: block;
+    height: 0px;
+    width: 0;
+    position: relative;
+    bottom: -100px;
+        background: linear-gradient(to top, black,rgb(255,0,0,0.6) 25%, transparent 70%),url(https://media.tenor.com/zhYFN75frugAAAAi/smoking-lucy.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.5s ease-in-out;
+    left: 0;
+    right: 0;
+    margin: auto;
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 40% 100%);
+   opacity: 0;
+}
+
+.transparent > .wrap .footer[data-v-0f519cab] > .container > .theme-selector:hover::before {
+    height: 130px;
+    bottom: 65px;
+    width: 80%;
+    opacity: 1;
+}
+
+.transparent > .wrap .footer[data-v-0f519cab] > .container > .theme-selector::after {
+content: '';
+}
+
+.transparent > .wrap .footer[data-v-0f519cab] > .container > .theme-selector > h2 {
+font-size: 0;
+}
+
+.transparent > .wrap .footer[data-v-0f519cab] > .container > .theme-selector > .el-tooltip {
 display: none;
 }
 
@@ -4732,23 +5040,16 @@ display: none;
     background: transparent;
   }
 
-  .markdown .markdown-spoiler.spoiler-visible i {
-    color: red;
-    top: 20px;
-    left: 0;
-  }
 
-  .markdown .markdown-spoiler.spoiler-visible span {
-    background: transparent;
-    color: rgb(var(--color-text));
-  }
+
+
 
   .markdown .markdown-spoiler::before {
 display: inline-block;
-    content: "! SPOILER";
+    content: "SPOILER";
     background: transparent;
     color: white;
-    padding: 5px;
+    padding: 2px;
     width: 85px;
     border: 1px solid rgb(var(--color-text));
     border-radius: 5px;
@@ -4764,11 +5065,37 @@ transition: all 0.3s ease-in-out;
   width: 120px;
   }
 
+.markdown .markdown-spoiler.spoiler-visible {
+    background: rgb(var(--color-blue),0.15);
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+  .markdown .markdown-spoiler.spoiler-visible span {
+    background: transparent;
+    color: rgb(var(--color-text));
+  }
+
+  .markdown .markdown-spoiler.spoiler-visible span img {
+    
+  }
+
+  .markdown .markdown-spoiler.spoiler-visible i {
+    color: red;
+    top: 20px;
+    left: 0;
+  }
+
 .markdown blockquote {
-    background: rgb(255, 255, 255, 0.2);
+    background: rgb(60,60,60);
     border-left: 0;
     position: relative;
-    border-radius: 10px;
+    border-radius: 5px;
+    max-width: 100%;
   }
 
   .markdown blockquote:before {
@@ -4787,14 +5114,24 @@ transition: all 0.3s ease-in-out;
   }
 
 * .markdown hr {
-border: 1px solid rgb(var(--color-blue));
+border: 1px solid rgb(50,50,50);
+}
+
+::marker {
+color: grey;
 }
 
 *  .markdown *, 
 * .markdown {
 text-transform: none !important;
 color: rgb(200,200,200);
-font-size: 1.05em;
+font-size: 1.08em;
+line-height: 1.7;
+
+}
+
+* .markdown:hover {
+scrollbar-color: rgb(var(--color-blue),0.2) transparent;
 }
 
 * .markdown .embed {
@@ -4870,98 +5207,133 @@ background-image: url("https://imgproxy.mapia.io/v3/VKTzYBsJ4MRvnutwUaMz_tcVwIPN
 margin-left: 0 !important;
 }
 
+.header .name {
+font-size: 1.1em;
+}
+
 .name[href="/user/Kachori/"]::before {
 content: '👑';
 color: white;
 background: transparent;
     border-radius: 3px;
-    color: white;
     font-size: 1.5rem;
     letter-spacing: .03em;
     margin-right: 0;
     overflow: hidden;
     padding: 4px 0px 4px 7px;
+    position: relative;
+    bottom: 2px;
 }
 
-
-.name[href="/user/Kachori/"]::after {
-font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
-content: '🐻‍❄️';
-color: white;
-background: rgb(var(--color-background));
+.header .name::after {
+    content: '';
     border-radius: 3px;
-    color: white;
+    width: 30px !important;
+    height: 22.7px !important;
+    bottom: -7px;
+    position: relative;
+    display: none;
     font-size: 1.2rem;
     letter-spacing: .03em;
     margin-left: 10px;
     overflow: hidden;
     padding: 4px 7px 1px 7px;
+    transition: all 0.3s ease-in-out;
+}
+
+.header .name:hover::after {
+scale: 1.3;
+}
+
+.name[href="/user/Kachori/"]::after {
+font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
+    background: url(https://media.tenor.com/Y4FOjFGvgaUAAAAi/melons.gif) center/contain no-repeat;
     animation: rainbow 20s infinite ease-in-out;
+    display: inline-block;
+}
+@keyframes rainbow {
+0% {
+    background-color: rgba(0,105,255,.71);
+}
+10% {
+    background-color: rgba(100,0,255,.71);
+}
+20% {
+    background-color: rgba(255,0,139,.71);
+}
+30% {
+    background-color: rgba(255,0,0,.71);
+}
+40% {
+    background-color: rgba(255,96,0,.71);
+}
+50% {
+    background-color: rgba(202,255,0,.71);
+}
+60% {
+    background-color: rgba(0,255,139,.71);
+}
+70% {
+    background-color: rgba(202,255,0,.71);
+}
+80% {
+    background-color: rgba(255,96,0,.71);
+}
+85% {
+    background-color: rgba(255,0,0,.71);
+}
+90% {
+    background-color: rgba(255,0,139,.71);
+}
+95% {
+    background-color: rgba(100,0,255,.71);
+}
+100% {
+    background-color: rgba(0,105,255,.71);
+}
 }
 
 .header .name[href="/user/Leafer/"]::after {
-content: '🍃';
-color: white;
-background: rgb(var(--color-background));
-    border-radius: 3px;
-    color: rgb(var(--color-text));
-    font-size: 1.2rem;
-    letter-spacing: .03em;
-    margin-left: 10px;
-    overflow: hidden;
-    padding: 4px 7px;
+content: '';
+background: url(https://media.tenor.com/0CnzoZmYPm8AAAAj/leaves-fall.gif) center/230% no-repeat;
+    background-color: rgb(var(--color-foreground));
+display: inline-block;
 }
 
 .header .name[href="/user/Rinymn/"]::after {
-content: '🌙';
-color: white;
-background: rgb(var(--color-background));
-    border-radius: 3px;
-    color: rgb(var(--color-text));
-    font-size: 1.2rem;
-    letter-spacing: .03em;
-    margin-left: 10px;
-    overflow: hidden;
-    padding: 4px 7px;
+content: '';
+background: url(https://media.tenor.com/GMOUvh8rs6oAAAAi/night-tired.gif) center/contain no-repeat;
+    background-color: rgb(var(--color-foreground));
+display: inline-block;
 }
 
 .header .name[href="/user/kqsatorii/"]::after {
-content: '♉︎';
-color: white;
-background: rgb(var(--color-background));
-    border-radius: 3px;
-    color: rgb(var(--color-text));
-    font-size: 1.2rem;
-    letter-spacing: .03em;
-    margin-left: 10px;
-    overflow: hidden;
-    padding: 4px 7px;
+content: '';
+background: url(https://media.tenor.com/_AMI2GYY9XcAAAAi/taurus-taurus-season.gif) center/110% no-repeat;
+    background-color: rgb(var(--color-foreground));
+display: inline-block;
 }
 
 .header .name[href="/user/human4ever/"]::after {
-content: '🤝';
-color: white;
-background: rgb(var(--color-background));
-    border-radius: 3px;
-    color: rgb(var(--color-text));
-    font-size: 1.2rem;
-    letter-spacing: .03em;
-    margin-left: 10px;
-    overflow: hidden;
-    padding: 4px 7px;
+content: '';
+background: url(https://media.tenor.com/C6eRUn3vjGAAAAAj/miku-quintessential.gif) center/85% no-repeat;
+    background-color: rgb(var(--color-foreground));
+display: inline-block;
 }
 
 .header .name[href="/user/kubocchi/"]::after {
-content: '🤝';
+content: '';
 color: white;
-background: rgb(var(--color-background));
-    border-radius: 3px;
-    color: rgb(var(--color-text));
-    font-size: 1.2rem;
-    letter-spacing: .03em;
-    margin-left: 10px;
-    overflow: hidden;
-    padding: 4px 7px;
+background: url(https://media.tenor.com/Ud8Px21wDcYAAAAi/thisisfinland-finland.gif) center/contain no-repeat;
+    background-color: rgb(var(--color-foreground));
+display: inline-block;
+}
+
+.header .name[href="/user/notKachori/"]::after {
+content: '';
+background: url(https://media.tenor.com/Y4FOjFGvgaUAAAAi/melons.gif) center/contain no-repeat;
+    background-color: rgb(var(--color-foreground));
+display: inline-block;
 }
 
 
@@ -4978,6 +5350,10 @@ animation:like 0.3s ease-in-out forwards;
 .hohPinned {
 margin-top: -70px;
 z-index: 1;
+}
+
+.hohPinned * {
+font-size: 1.03em;
 }
 
 .hohPinned:not(:first-child) {
@@ -5073,7 +5449,7 @@ display: none;
 
 #app .tooltip {
 border-radius: 0;
-background: rgb(0,0,0,0.5);
+background: rgb(0,0,0,0.65);
 backdrop-filter: blur(10px);
 }
 
@@ -5145,4 +5521,86 @@ background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/YouTub
 
 .markdown video {
 max-width: 500px;
+}
+
+.markdown code {
+    white-space: pre-wrap;
+    background: rgb(15,15,15);
+    padding: 20px;
+    display: inline-block;
+    width: 100%;
+    border-left: 0;
+    position: relative;
+    border-radius: 5px;
+    color: rgb(var(--color-text-lighter));
+    word-wrap: break-word;
+    margin-block: 10px;
+    font-size: 1.01em;
+}
+
+.markdown code::before {
+    font-family: "Roboto";
+    font-weight: 800;
+    font-size: 13px;
+    content: "</>";
+    color: rgb(255, 255, 255, 0.2);
+    display: block;
+    background: transparent;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+  }
+
+.markdown *[data-red] {
+color: red !important;
+}
+
+.markdown *[data-green] {
+color: green !important;
+}
+
+.markdown *[data-blue] {
+color: blue !important;
+}
+
+.markdown *[data-xlheader] {
+font-size: 30px;
+}
+
+.markdown *[data-meme] {
+animation: textrainbow 2s linear infinite;
+}
+
+@keyframes textrainbow {
+0%,33% {
+color: red;
+}
+34%,66% {
+color: green;
+}
+67%,100% {
+color: blue;
+}
+}
+
+.markdown hr[data-colored] {
+border: 1px solid rgb(var(--color-blue));
+}
+
+.markdown-editor>div {
+cursor: pointer;
+    transition: .2s;
+    border: 1px solid rgb(var(--color-blue), 0.5);
+    color: rgb(var(--color-blue));
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.4;
+}
+
+.markdown-editor>div:hover {
+opacity: 1;
 }

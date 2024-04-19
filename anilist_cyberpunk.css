@@ -34,6 +34,7 @@ scrollbar-color: rgb(255, 0, 60,0.5) transparent;
 * {
 text-transform: uppercase !important;
 font-family: "Blender Pro Book", BlenderProBook, sans-serif;
+--color-blue-light: 200, 188, 10;
 --color-blue: 252, 238, 10;
 --color-red: 252, 238, 10;
 --color-pink: 214,0,255;
@@ -74,7 +75,7 @@ font-family: "Blender Pro Book", BlenderProBook, sans-serif;
   --color-gray-100: 21,31,46 !important;
   --color-gray-200: 11,22,34 !important;
   scrollbar-width: thin !important;
-  scrollbar-color: rgb(var(--color-blue)) transparent;
+  scrollbar-color: rgb(var(--color-blue),0.5) transparent;
 }
 
 ::-webkit-scrollbar-button {
@@ -231,9 +232,6 @@ width: 0;
 
 #nav > .wrap .search {
 display: none;
-position: fixed;
-left: 0;
-top:0;
 }
 
 #nav > .wrap > .user {
@@ -270,6 +268,7 @@ width: 80px;
 border: 1px solid #FF003C;
 position: relative;
 border-radius: 0;
+filter: grayscale(0.5) contrast(1.5);
 }
 
 #nav > .wrap > .user > .user-wrap > .avatar::before {
@@ -284,6 +283,7 @@ left: 0;
 height: 100%;
 width: 100%;
 opacity: 0.4;
+filter: none;
 }
 
 #nav > .wrap > .user > .user-wrap::before{
@@ -345,12 +345,14 @@ border: 1px solid #FF003C;
 padding: 5px 10px;
 color: #FF003C;
 overflow: hidden;
+transition: all 0.2s;
 }
 
 
 #nav > .wrap > .user > .user-wrap .dropdown .primary-links .primary-link:hover,
 #nav > .wrap > .user > .user-wrap .dropdown .primary-links .primary-link:hover svg {
-color: rgb(255,0,60,0.6);
+color: rgb(255,0,60,0.8);
+scale: 1.1;
 }
 
 #nav > .wrap > .user > .user-wrap .dropdown .primary-links .primary-link svg {
@@ -420,7 +422,6 @@ transition: content 1.5s ease-in-out;
 }
 
 #nav > .wrap .logo img:hover {
-/*content: url('https://www.cyberpunk.net/build/images/home8/logo-franchise-black-en@2x-06852b64.png');*/
 filter: invert(1) grayscale(1) contrast(1.5);
 }
 
@@ -522,19 +523,18 @@ overflow: hidden;
     position: absolute;
     height: 100%;
     width: 100%;
+    background: linear-gradient(to bottom, rgb(0,0,0,0.8), rgba(0, 0, 0,0.3) 20%);
     backdrop-filter: brightness(0.85);
-    opacity: 1;
+    opacity: 0;
     z-index: 1;
-    /*background: url(https://i.postimg.cc/Y9c0xZYg/smoke02.gif);
-    background-repeat: repeat-x;*/
+    animation: arrive 3s ease-in-out 1s forwards;
 }
+
 
 .page-content > .user .header-wrap .banner {
 background-image: url(https://i.imgur.com/oyADQc2.jpg) !important;
 background-image: url(https://i.imgur.com/17Urqbv.jpeg) !important;
-background-color: rgba(0, 0, 0,0.25) !important;
 background-size: 110%;
-background-blend-mode: overlay;
 height: 100dvh;
 width: 100dvw;
 position: relative;
@@ -554,7 +554,7 @@ background-size: 120%;
 }
 
 .page-content > .user .header-wrap .banner::before {
-background-image: url(https://cdn.discordapp.com/attachments/929122804132098075/1151664315670204417/dots-top-401abdab.png),url(https://cdn.discordapp.com/attachments/929122804132098075/1151663122327818381/dots-bottom-27735777_1.png), url(https://discord.c99.nl/widget/theme-4/639354644560085002.png), url(https://i.imgur.com/4uf7vCq.png), url(https://i.makeagif.com/media/1-16-2016/ufv4f8.gif), url(https://i.imgur.com/LBJZbdk.jpeg);
+background-image: url(https://cdn.discordapp.com/attachments/929122804132098075/1151664315670204417/dots-top-401abdab.png),url(https://cdn.discordapp.com/attachments/929122804132098075/1151663122327818381/dots-bottom-27735777_1.png), url(https://discord.c99.nl/widget/theme-4/639354644560085002.png), url(https://i.imgur.com/4uf7vCq.png), url(https://i.makeagif.com/media/1-16-2016/ufv4f8.gif), url(https://i.imgur.com/LBJZbdk.jpeg), url(https://imgur.com/2aqMx11.png), url(https://i.imgur.com/OVBmW8a.png), url(https://i.imgur.com/Qek0KTR.png), url(https://i.imgur.com/7X8TYNT.png), url(https://svgur.com/i/15H8.svg);
     background-position: 20px 20px,20px calc(100% - 183px);
     background-repeat: repeat-x, repeat-x;
     content: "";
@@ -823,20 +823,6 @@ opacity: 0;
 } 
 
 .page-content > .user .header-wrap .banner .container .banner-content > .follower-badge {
-    z-index: 10;
-    position: absolute;
-    margin: auto;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    height: max-content;
-    width: max-content;
-    transform: translate(-110px, -140px);
-    background: transparent;
-    color: rgb(var(--color-cyan));
-    padding: 3px 5px;
-    backdrop-filter: blur(20px);
-    opacity: 0.8;
     display: none;
 }
 
@@ -889,7 +875,8 @@ display: flex;
 }
 
 .page-content > .user .header-wrap .nav-wrap .nav.container > .link::before {
-content: '// .';
+content: ':: ';
+white-space: pre;
 }
 
 .page-content > .user .header-wrap .nav-wrap .nav.container > .link::after {
@@ -1150,18 +1137,23 @@ border-radius: 0;
 scrollbar-color: transparent transparent;
 }
 
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown h5 {
+font-size: 1em;
+}
+
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a {
 color: red;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://kachori.carrd.co/"] {
 display: inline-flex;
+display: none;
     position: fixed;
     inset: 0;
     transform: translate(-195px, -70px);
     margin: auto;
-    width: 37px;
-    height: 32px;
+    width: 33px;
+    height: 33px;
     padding: unset;
     font-size: 0;
     border: 1px solid cyan;
@@ -1287,16 +1279,14 @@ animation: spin 9s linear infinite;
     bottom: -60px;
 }
 
-/* discord add */
-
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://sptfy.com/kachori"] {
 background: url(https://i.imgur.com/1HhhjFH.png) center/cover no-repeat;
 background: url(https://i.imgur.com/61PgFd9.gif) center/cover no-repeat;
-    height: 30px;
-    width: 30px;
+    height: 28px;
+    width: 28px;
     display: block;
     position: absolute;
-    transform: translate(-200px, -20px);
+    transform: translate(-197px, -18px);
     z-index: 10;
     font-size: 0;
     inset: 0;
@@ -1309,8 +1299,28 @@ border-radius: 50%;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://sptfy.com/kachori"]:hover {
-background: url(https://i.imgur.com/LBJZbdk.jpeg) center/contain no-repeat;
-    background-color: white;
+background: url(https://i.imgur.com/LBJZbdk.jpeg) center/110% no-repeat;
+background: url(https://i.imgur.com/38hG4Eg.png) center / 65% no-repeat;
+background: url(https://svgur.com/i/15H8.svg) center / 70% no-repeat;
+    background-color: rgb(var(--color-cyan), 0.1);
+}
+
+.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://sptfy.com/kachori"]::after {
+content: 'LISTENING ON SPOTIFY';
+    font-size: 12.5px;
+    color: rgb(var(--color-cyan), 0.9);
+    background: rgb(var(--color-background), 0.4);
+    height: 19px;
+    display: block;
+    width: 145px;
+    left: -215px;
+    top: -27px;
+    position: absolute;
+    pointer-events: none;
+    padding-right: 20px;
+    backdrop-filter: blur(20px);
+    clip-path: polygon(0 0, 85% 0, 95% 100%, 0% 100%);
+    box-shadow: 0px 5px 16px 2px rgb(var(--color-cyan), 0.3) inset;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-ok] {
@@ -1414,34 +1424,6 @@ opacity: 0;
 }
 }
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-foot] {
-position: absolute;
-    z-index: 100;
-    height: 88px;
-    width: 251px;
-    background: url(https://spotify-github-profile.vercel.app/api/view?uid=zphm4fzrs5rd2qrrk83vwyxe4&cover_image=true&theme=natemoo-re&show_offline=true&background_color=121212&interchange=false&bar_color=728aa1&bar_color_cover=true);
-    background-size: 5000%;
-    background-position: -95px;
-    animation: spotifyborder 3s linear alternate infinite;
-    inset: 0;
-    margin: auto;
-    transform: translateX(-300px);
-    clip-path: polygon(0% 0%, 0% 100%, 1% 100%, 1% 2%, 99% 2%, 99% 98%, 25% 99%, 25% 99%, 100% 100%, 100% 0%);
-    opacity: 1;
-    display: none;
-    filter: blur(30px) contrast(2) brightness(2) saturate(2);
-    pointer-events: none;
-}
-
-@keyframes spotifyborder {
-0% {
-background-position: -600px;
-}
-100% {
-
-background-position: -400px;
-}
-}
 
 #nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord] {
 right: -80px;
@@ -1474,6 +1456,7 @@ width: 350px;
     background-size: 92%;
     opacity: 1;
 border: 2px solid rgb(var(--color-cyan),0.3);
+border-radius: 10px 10px 0 10px;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover::before {
@@ -1485,7 +1468,7 @@ content: '';
     left: 0;
     background-size: 200%;
     background-position: center;
-    opacity: 0.06;
+    opacity: 0.04;
 }
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover a {
@@ -1500,35 +1483,6 @@ display: block;
 
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-discord]:hover a:hover {
 scale: 1.2;
-}
-
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video {
-    margin: auto;
-    right: 0;
-    position: absolute;
-    border-radius: 0;
-    top: 130px;
-    left: 0;
-    width: 200px;
-    height: 40px;
-    opacity: 0.2;
-}
-
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video:hover {
-opacity: 1;
-}
-
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls {
-border-radius: 0;
-background: transparent;
-    }
-
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-fullscreen-button,
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-current-time-display,
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-timeline,
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-time-remaining-display,
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown video::-webkit-media-controls-volume-control-hover-background {
-  display: none;
 }
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(2) {
@@ -1566,35 +1520,9 @@ margin: 0;
 white-space: nowrap;
 }
 
-/*.page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after {
-display: inline-block;
-content: '';
-animation: slide 20s linear infinite;
-filter: brightness(0.5);
-background-size: contain !important;
-    background: url(https://i.imgur.com/Jvo0RmM.png);
-    width: 718px;
-    height: 100px;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::before {
-display: inline-block;
-content: '';
-animation: slide 20s linear infinite;
-filter: brightness(0.5);
-background-size: contain !important;
-    background: url(https://i.imgur.com/Jvo0RmM.png);
-background-position: center;
-    background-repeat: no-repeat;
-    width: 718px;
-    height: 100px;
-}*/
-
 .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::before, .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after  {
 display: inline-block;
-    content: 'cœur fidèle ';
+    content: 'Belle journée ';
     white-space: pre;
     color: rgb(var(--color-text),0.2);
     -webkit-text-stroke: 2px rgb(var(--color-text),0.6);
@@ -1647,17 +1575,6 @@ text-stroke: 0.3px rgb(255,0,60,0.5);
 text-shadow: 0 0 10px rgb(255,0,60,0.4);
 transform: translateY(-90%);
 font-size: 45px;
-}
-
-.page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)):hover > .section-header::before {
-    content: 'Shift+Scroll';
-    font-family: 'Blender Pro Book';
-    color: rgb(255,0,60,.3);
-    -webkit-text-stroke: transparent;
-    position: absolute;
-    font-size: 12px;
-    transform: translate(0px, -5px);
-    display: none;
 }
 
 .page-content > .user .content.container .overview .section .desktop:not(:nth-child(8)):hover > .section-header::after {
@@ -1869,88 +1786,6 @@ font-family: 'sans-serif' !important;
 opacity: 0.5;
 }
 
-.page-content > .user .content.container .overview .section .desktop:nth-child(8) {
-position: fixed;
-width: 50px;
-height: 50px;
-bottom: 5px;
-right: 0;
-z-index: 100;
-background: url(https://i.imgur.com/9OhAAM4.gif);
-background-position: center;
-background-size: contain; 
-background-repeat: no-repeat;
-cursor: pointer;
-transition: all 0.5s ease-in-out;
-display: none;
-}
-
-#nav:not(.transparent) ~ .page-content > .user .content.container .overview .section .desktop:nth-child(8) {
-right: -60px;
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(8)::after {
-font-size: 12px;
-text-align: center;
-clip-path: polygon(0% 0%, 100% 0%, 100% 86%, 92% 86%, 95% 100%, 84% 87%, 0 88%);
-padding: 5px;
-content: '';
-    position: absolute;
-    bottom: 90%;
-    right: 50px;
-    height: max-content;
-    background: white;
-    display: block;
-    visibility: hidden;
-    width: 0;
-    overflow: hidden;
-    animation: chatbot 120s infinite;
-    max-width: 250px;
-    background: rgb(255,0,60,0.2);
-    color: rgb(255,0,60);
-    backdrop-filter: blur(5px);
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(8):hover::after {
-visibility: visible;
-width: max-content;
-padding-bottom: 10px;
-}
-
-@keyframes chatbot {
-  0%, 10% {
-    content: 'Just in case no one told you today: Hello. Good morning. You\’re doing great. I believe in you. Nice butt.';
-  }
-  10.01%, 20% {
-    content: 'My resume is just a list of things I hope I\'m good at.';
-  }
-  20.01%, 30% {
-    content: 'I don\'t think it\'s possible to overstate just how profoundly I admire and cherish the existence of cats.';
-  }
-  30.01%, 40% {
-    content: 'Any anime you think I should watch?';
-  }
-  40.01%, 50% {
-    content: 'Parallel lines have so much in common. It\'s a shame they\'ll never meet.';
-  }
-  50.01%, 60% {
-    content: 'CSS will forever be a WIP, so please let me know if you notice anything weird and needs to be fixed.';
-  }
-  60.01%, 70% {
-    content: 'I used to think I was indecisive, but now I\'m not so sure';
-  }
-  70.01%, 80% {
-    content: 'Do you have a name, or can I call you mine?' ;
-  }
-  80.01%, 90% {
-    content: 'Which comes first: the cereal or the milk?';
-  }
-  90.01%, 100% {
-    content: 'I swear the opening of a spider\'s egg sac is the scariest thing I\'ve witnessed';
-  }
-}
-
-
 .page-content > .user .content.container .overview .section .desktop:nth-child(8) > .section-header,
 .page-content > .user .content.container .overview .section .desktop:nth-child(8) > .favourites-wrap,
 .page-content > .user .content.container .overview .section .desktop:nth-child(8) > .favourites-wrap .favourite.studio {
@@ -1965,7 +1800,7 @@ background-size: contain, cover;
 background-repeat: no-repeat, no-repeat;
 background-position: bottom, center;
 position: absolute;
-height :88px;
+height :80px;
 width: 251px;
 inset: 0;
 margin: auto;
@@ -2085,11 +1920,11 @@ width: 200px;
 }
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(9)::before {
-content: 'playing on spotify';
+content: 'listening on spotify';
 top: 7px;
 left: 5px;
 display: block;
-font-size: 10px;
+font-size: 0px;
 position: relative;
 color: rgb(var(--color-text-light));
 background: rgb(255,0,0,0);
@@ -2122,9 +1957,9 @@ width:  400px;
     margin: 10px 0;
     border-radius: 0;
     animation: arrive1 1s forwards;
-    border: 1px solid rgb(var(--color-blue),0.5);
-    border-right: 2px solid rgb(var(--color-blue),0.5);
-    border-left: 2px solid rgb(var(--color-blue),0.5);
+    border: 1px solid rgb(var(--color-blue-light),0.5);
+    border-right: 2px solid rgb(var(--color-blue-light),0.5);
+    border-left: 2px solid rgb(var(--color-blue-light),0.5);
     border-bottom: 0px;
     clip-path: polygon(100% 0, 100% 95%, 98% 100%, 0 100%, 0 0);
     height: 94px;
@@ -2143,7 +1978,7 @@ transition: all 1s ease-in-out;
     width: 100%;
     height: 5px;
     display: block;
-    background-color: rgb(var(--color-blue),0.5);
+    background-color: rgb(var(--color-blue-light),0.5);
     clip-path: polygon(0 0, 0 100%, 10% 100%, calc(10% + 4px) 2px, 100% 2px, 100% 0);
 }
 
@@ -2200,11 +2035,11 @@ color: rgb(var(--color-text-lighter));
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) > .stats-wrap .content-wrap > .stats-wrap .stat .value {
-color: rgb(var(--color-blue),0.8);
+color: rgb(var(--color-blue-light),0.8);
     font-family: 'Tomorrow';
     font-size: 24px;
     opacity: 0;
-    text-shadow: 0 0 10px rgb(var(--color-blue),0.8);
+    text-shadow: 0 0 20px rgb(var(--color-blue-light),0.8);
     animation: flicker 2s forwards 1s;
 }
 
@@ -2293,7 +2128,7 @@ padding: 5px 0;
     display: block;
     height: max-content;
     position: absolute;
-    width: 520px;
+    width: 100%;
     text-align: center;
     font-size: 3em;
     top: -86%;
@@ -2314,7 +2149,7 @@ padding: 5px 0;
     display: block;
     height: max-content;
     position: absolute;
-    width: 540px;
+    width: 104%;
     text-align: center;
     font-size: 4em;
     top: -101%;
@@ -2364,16 +2199,6 @@ background: transparent;
 padding-bottom: 0;
 transition: height 0.5s ease-in-out, width 0.5s ease-in-out, top 0.5s ease-in-out;
 background: rgb(0,0,0,0.02);
-}
-
-.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(> .preview)::after {
-    content: '✓ connected ' !important;
-    background: url(https://i.imgur.com/ISQBYy9.png) 10px -20px/40% no-repeat !important;
-    background-color: rgb(var(--color-blue),0.1) !important;
-    justify-content: flex-end;
-    border: 1px solid rgb(var(--color-blue),0.5) !important;
-    color: rgb(var(--color-blue)) !important;
-    animation: arrive 1s ease-in-out reverse forwards 1s !important;
 }
 
 @keyframes arrive5 {
@@ -2439,12 +2264,13 @@ content: 'close all activity replies';
     transform: none;
     padding-top: 25dvh;
     scrollbar-color: rgb(var(--color-blue),0.5) transparent;
+    transition: all 0.5s ease-in-out;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice)::before {
 content: '[ WHAT\'S THE STORY, MORNING GLORY? ]';
     color: rgb(var(--color-text));
-    font-size: 1.8em;
+    font-size: 27px;
     font-family: 'BlenderProBook';
     margin-bottom: 50px;
     animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
@@ -2453,30 +2279,10 @@ content: '[ WHAT\'S THE STORY, MORNING GLORY? ]';
     border-right: .15em solid orange;
 }
 
-.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice)::after {
-   content: ' ● AVAILABLE';
-    color: rgb(var(--color-cyan));
-    white-space: pre;
-    display: flex;
-    align-items: center;
-    height: 35px;
-    width: 200px;
-    background: url(https://i.imgur.com/ISQBYy9.png) 110px -20px/40% no-repeat;
-    background-color: rgb(var(--color-cyan),0.1);
-    border: 1px solid rgb(var(--color-cyan),0.5);
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    transition: all 0.5s ease-in-out;
-    padding: 15px;
-    font-size: 13px;
-    animation: none;
-    display: none;
-}
-
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) {
-    background: radial-gradient(rgb(var(--color-blue),0.1) 10%, rgb(0,0,0,0.9) 80%);
+    background: radial-gradient(rgb(var(--color-blue),0.08) 10%, rgb(0,0,0,0.9) 80%);
     transition: all 0.5s ease-in-out;
+padding-top: 5dvh;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview)::before {
@@ -2489,9 +2295,13 @@ animation: none;
 
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) > .section-header {
+margin-top: 30px;
+}
+
 @keyframes typing {
   from { width: 0 }
-  to { width: 466.21px; }
+  to { width: 437.33px; }
 }
 
 @keyframes blink-caret {
@@ -2513,20 +2323,26 @@ position: absolute;
     opacity: 0.5;
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .actions > .button.cancel:hover {
+opacity: 0.8;
+}
+
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit .rules-notice {
 display: block !Important;
 font-size: 0em;
 margin-bottom: 15px;
 order: 3;
+height: 0;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit .rules-notice::after {
-content: 'RULES, GUIDELINES, YADAYADA \
+content: ':: RULES, GUIDELINES, YADAYADA :: \
 \a\a ━━━━━━━━━━━━ \
 \a 1. Don\'t be an a**hole \
 \a 2. English only \
 \a 3. Spam all you want \
-\a 4. Even if you don\'t have anything specific to talk about, feel free to drop a hello. I\'d appreciate that.';
+\a 4. Even if you don\'t have anything specific to talk about, feel free to drop a hello. I\'d appreciate that. \
+\a 5. Turn data cache off (You\'ll find out why)';
 display: block;
     font-size: 13px;
     text-transform: none !important;
@@ -2542,6 +2358,8 @@ display: block;
     overflow: hidden;
     cursor: pointer;
     border: 1px solid rgb(var(--color-cyan),0.5);
+position: relative;
+bottom: -40px;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit .rules-notice:hover::after {
@@ -2596,6 +2414,34 @@ color: transparent;
 font-size: 0;
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .actions > .button:not(:first-child) {
+clip-path: none;
+    background: rgb(var(--color-blue),0.1);
+    color: rgb(var(--color-blue),0.7);
+    border: 1px solid rgb(var(--color-blue),0.7);
+transition: all 0.3s;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .actions > .button:nth-child(2) {
+margin: unset;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .actions > .button:nth-child(2):hover {
+border: 1px solid rgb(var(--color-blue));
+    color: transparent;
+    background-image: url(https://i.imgur.com/7X8TYNT.png);
+    background-position: 60% center;
+    background-size: contain;
+    background-repeat: no-repeat;
+   box-shadow: 0px 0px 30px rgb(var(--color-blue),0.3);
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.rules-notice) > .actions > .button:nth-child(3):hover {
+border: 1px solid rgb(var(--color-blue));
+    color: rgb(var(--color-blue));
+box-shadow: 0px 0px 30px rgb(var(--color-blue),0.3);
+}
+
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .input > textarea::placeholder {
 display: none;
 text-align: center;
@@ -2620,9 +2466,9 @@ color: rgb(var(--color-text));
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap {
-background: rgb(var(--color-blue),0.1);
+background: rgb(var(--color-background),0.5);
 animation: arrive6 0.2s forwards;
-border: 1px solid rgb(var(--color-blue));
+border: 1px solid rgb(var(--color-blue),0.5);
 overflow: visible;
 }
 
@@ -2643,10 +2489,14 @@ padding: unset;
 position: absolute;
     left: -65px;
     top: 0;
-    background: rgb(var(--color-blue),0.2);
+    background: rgb(var(--color-background),0.5);
     border: 1px solid rgb(var(--color-blue));
     border-radius: 5px;
     overflow: hidden;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header:hover {
+background: rgb(var(--color-blue),0.2);
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .avatar {
@@ -2666,25 +2516,41 @@ color: rgb(var(--color-blue),0.5);
     right: 0;
     margin: auto;
     text-align: center;
-    font-size: 35px;
+    font-size: 27px;
    pointer-events: none;
     font-weight: normal;
-    animation: arrive 1s ease-in-out;
+    animation: fadeinout 4s ease-in-out forwards;
+    bottom: -55dvh;
+}
+
+@keyframes fadeinout {
+0% {
+opacity: 0;
+}
+40% {
+opacity: 1;
+}
+60% {
+opacity: 1;
+}
+100% {
+opacity: 0;
+}
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .name::before {
-content: 'Hey there ';
-background: none;
-font-size: 35px;
-color: rgb(var(--color-blue),0.5);
+    content: 'Hey there ';
+    font-size: 27px;
+    color: rgb(var(--color-blue), 0.5);
+    bottom: unset;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit > .activity-entry > .wrap > .text > .header > .name::after {
 display: inline;
-content: '!';
+content: '! :)';
 background: transparent;
 animation: none;
-font-size: 35px;
+font-size: 27px;
 color: rgb(var(--color-blue),0.5);
 margin: unset;
 padding: unset;
@@ -2699,8 +2565,6 @@ background: transparent !important;
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap .activity-edit > .activity-entry > .wrap >.activity-markdown > .markdown a {
 color: red;
 }
-
-/* activity-section */
 
 @media (min-width: 1450px) {
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed {
@@ -2736,8 +2600,40 @@ animation: arrive 2s ease-in-out forwards;
 width: max-content;
 }
 
+.el-popup-parent--hidden {
+overflow: hidden;
+}
+
 .el-dialog__wrapper {
 backdrop-filter: blur(30px) brightness(0.3);
+background: rgb(var(--color-cyan), 0.1);
+}
+
+.el-dialog__body {
+background: rgb(0, 0, 0, 0.45);
+animation: arrive9 0.5s ease-in-out;
+}
+
+@keyframes arrive9 {
+0% {
+scale: 0;
+}
+100% {
+scale: 1;
+}
+}
+
+.el-dialog__body .markdown-editor {
+background: transparent;
+}
+
+
+.activity-text .el-dialog__body * {
+--color-blue: 214,0,255 !important;
+}
+
+.activity-message .el-dialog__body * {
+--color-blue: 252, 238, 10 !important;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry:has(.el-dialog__wrapper) {
@@ -2796,10 +2692,10 @@ opacity: 1;
 
 @keyframes borderAnimation2 {
   0% {
-    border-image: linear-gradient(45deg, rgb(var(--color-blue),0.5), transparent) 1;
+    border-image: linear-gradient(45deg, rgb(var(--color-blue),0.3), transparent) 1;
   }
   100% {
-    border-image: linear-gradient(45deg, transparent, rgb(var(--color-blue),0.5)) 1;
+    border-image: linear-gradient(45deg, transparent, rgb(var(--color-blue),0.3)) 1;
   }
 }
 
@@ -2926,6 +2822,10 @@ display: flex;
 justify-content: center;
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry > .wrap:hover > .list > .details > .el-dropdown {
+background: transparent;
+}
+
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width {
 display: flex;
 flex-direction: column;
@@ -2951,8 +2851,11 @@ opacity: 1;
 border-image: linear-gradient(45deg, #bd00ff, rgb(255,0,60,0.2)) 1;
 animation: borderAnimation 1s linear infinite alternate;
 background: radial-gradient(rgb(255,0,60,0.18) 10%, rgb(0,0,0) 80%);
-border-right: 6px solid rgb(255,0,60);
 clip-path: polygon(100% 0, 100% 89%, 99% 100%, 0 100%, 0 0);
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width:is(.activity-anime_list, .activity-manga_list) > .wrap {
+border-right: 6px solid rgb(255,0,60) !important;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .wrap > .list > .cover {
@@ -2991,8 +2894,6 @@ justify-content: center;
 text-wrap: nowrap;
 }
 
-
-/*status wrap*/
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text * {
 --color-blue: 128,128,128;
@@ -3035,6 +2936,10 @@ width: max-content;
     clip-path: polygon(90% 0, 100% 54%, 100% 100%, 0 100%, 0 0);
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text > .wrap > .text > .header::after {
+content: '';
+}
+
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text > .wrap:hover > .text > .header,
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text.full-width > .wrap > .text > .header {
 background: rgb(var(--color-blue));
@@ -3065,6 +2970,7 @@ border-right: 4px solid grey;
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text.full-width > .wrap > .text  > .activity-markdown {
 border: 1px solid rgb(var(--color-blue));
 border-right: 4px solid rgb(var(--color-blue));
+background: rgb(var(--color-background),0.5);
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-text > .wrap > .time {
@@ -3098,7 +3004,7 @@ width: 80%;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply {
-background: black;
+background: rgb(var(--color-background),0.5);
 border: 1px solid rgb(var(--color-blue),0.2);
 border-radius: 0;
 animation: slide-in-reply 0.5s ease-in-out forwards;
@@ -3110,6 +3016,10 @@ transition: all 0.3s ease-in-out;
 
 }
 
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply > .reply-markdown {
+
+}
+
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .reply > .header > .avatar {
 border-radius: 50%;
 border: 1px solid rgb(var(--color-blue));
@@ -3117,9 +3027,7 @@ height: 30px;
 width: 30px;
 }
 
-.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .activity-edit {
-animation: slide-in-reply 0.5s ease-in-out forwards;
-}
+
 
 @keyframes slide-in-reply {
   0% {
@@ -3150,7 +3058,14 @@ width: 100% !important;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .activity-edit {
+animation: slide-in-reply 0.5s ease-in-out forwards;
 position: relative;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .activity-edit > .reply.preview {
+background: rgb(var(--color-background),0.5);
+border-radius: 0;
+border: 1px solid rgb(var(--color-blue), 0.2)
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.full-width > .reply-wrap .activity-replies > .activity-edit > .markdown-editor {
@@ -3183,7 +3098,6 @@ border-radius: 0;
 border-right: 3px solid rgb(var(--color-blue));
 }
 
-/*activity message*/
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-message {
     grid-column-start: 1;
@@ -3259,6 +3173,7 @@ border-right: 4px solid grey;
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-message.full-width > .wrap > .text  > .activity-markdown {
     border: 1px solid rgb(var(--color-blue));
 border-right: 4px solid rgb(var(--color-blue));
+background: rgb(var(--color-background),0.5);
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-feed > .activity-entry.activity-message > .wrap > .time {
@@ -3314,14 +3229,12 @@ background: transparent;
   }
 }
 
-/* social */
-
 .user-social * {
---color-blue: 255,0,60;
+--color-blue: 0,255,255;
 }
 
 .page-content > .user > .content.container:has(.user-social) {
-background: radial-gradient(rgb(255,0,60,0.1) 10%, transparent 80%);
+background: radial-gradient(rgb(0,255,255,0.1) 10%, transparent 80%);
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
@@ -3332,7 +3245,7 @@ background: radial-gradient(rgb(255,0,60,0.1) 10%, transparent 80%);
     position: absolute;
     height: 450px;
     width: 450px;
-    border: 10px solid rgb(10,0,0);
+    border: 10px solid rgb(0,5,5);
     left: 0;
     right: 0;
     top: -250px;
@@ -3346,7 +3259,7 @@ background: radial-gradient(rgb(255,0,60,0.1) 10%, transparent 80%);
     position: absolute;
     height: 450px;
     width: 450px;
-    border: 10px solid rgb(10,0,0);
+    border: 10px solid rgb(0,5,5);
     left: 0;
     right: 0;
     top: -250px;
@@ -3375,13 +3288,6 @@ margin-top: 90px;
     filter: brightness(0.5);
     animation: arrive 1s ease-in-out forwards;
   }
-
-
-/* .user-social .user-follow .wrap .follow-card:has(.avatar):has(.name[href="/user/kqsatorii/"]),
- .user-social .user-follow .wrap .follow-card:has(.avatar):has(.name[href="/user/Rinymn/"]),
- .user-social .user-follow .wrap .follow-card:has(.avatar):has(.name[href="/user/Leafer/"]) {
-order: -1;
-}*/
 
 .page-content > .user > .content.container > .user-social:not(.listView) {
     display: flex;
@@ -3418,6 +3324,7 @@ backdrop-filter: blur(20px);
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .filters > .filter-group > span:not(.active):hover {
 color: rgb(var(--color-blue));
+    box-shadow: 3px 3px rgb(var(--color-blue), 0.5);
 }
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .filters > .filter-group > span:nth-child(9),
@@ -3536,7 +3443,7 @@ position: relative;
 padding-inline: 5px;
     font-size: 0.7em;
     display: block;
-    border-top: 2px solid rgb(255,0,60);
+    border-top: 2px solid rgb(0,255,255);
     text-shadow: none;
   }
 
@@ -3567,7 +3474,7 @@ order: 10;
 }
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .filters > .filter-group > span:nth-child(5)::after {
-content: 'coolest user';
+content: 'Baddest hombre';
 font-size: 17px;
 }
 
@@ -3580,8 +3487,8 @@ margin-top: 30px;
 }
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .user-threads > .wrap > .thread-card {
-background: rgb(255,0,60,0.1);
-    border: 1px solid rgb(255,0,60,0.3);
+background: rgb(var(--color-cyan),0.1);
+    border: 1px solid rgb(var(--color-cyan),0.3);
     backdrop-filter: blur(30px);
 }
 
@@ -3598,7 +3505,7 @@ content: '';
     text-align: center;
     font-size: 3.5em;
 padding-left: 33px;
-animation: gibberishAnimation 2s linear forwards;
+animation: gibberishAnimation 1.5s linear forwards;
 color: rgb(var(--color-blue),0.8);
 }
 
@@ -3702,8 +3609,6 @@ color: rgb(var(--color-pink));
 border: 1px solid rgb(255,0,60);
 color: rgb(255,0,60);
 }
-
-/* media list */
 
 .page-content > .user .content.container .medialist *{
 --color-blue: 0,255,255;
@@ -3985,10 +3890,6 @@ left: 10px;
   color: white;
 }
 
-/**/
-
-/*Favourites page*/
-
 .page-content > .user .content.container:has(> .favourites) {
 position: relative;
     padding: 50px 0 80px 0;
@@ -4021,7 +3922,7 @@ content: '';
 
 .page-content > .user .content.container > .favourites > .favourites {
 position: relative;
-filter: brightness(0.3);
+filter: brightness(0.2);
 transition: all 1s ease-in-out;
 }
 
@@ -4043,7 +3944,7 @@ filter: brightness(1);
 position: relative;
 font-size: 3.5em;
 z-index: 2;
-margin-bottom: 40px;
+margin-bottom: 80px;
 color: rgb(var(--color-text));
 opacity: 0;
 }
@@ -4067,10 +3968,6 @@ content: '▷▷ ';
 font-size: 0.9em;
 white-space: pre;
 color: rgb(var(--color-pink));
-}
-
-.page-content > .user .content.container > .favourites > .favourites:is(:nth-child(1), :nth-child(3)) {
-/*order: -1;*/
 }
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap {
@@ -4122,6 +4019,10 @@ animation: borderanimation3 1s linear infinite;
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap > .favourite > .delete {
 z-index: 2;
+    border: 1px solid rgb(var(--color-pink));
+    background: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: rgb(var(--color-pink));
 }
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap > .favourite::after {
@@ -4136,7 +4037,7 @@ z-index: 2;
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap > .favourite:hover::after {
 content: '';
-background: linear-gradient(to bottom, rgb(0,0,0,0.9), transparent, transparent, transparent, rgb(0,0,0,0.9));
+background: linear-gradient(to bottom, rgb(0,0,0), transparent 30%, rgb(0,0,0));
 backdrop-filter: none;
 }
 
@@ -4152,7 +4053,11 @@ border-width: 2px;
     border-style: solid;
     border-image: linear-gradient(to bottom, black, rgb(var(--color-blue))) 1;
 animation: none;
-transform: none;
+    transform-style: preserve-3d;
+    transform: perspective(1800px) rotateX(10deg);
+    scale: 1.08;
+    z-index: 100;
+   border-bottom: 3px solid rgb(var(--color-pink));
 }
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap:is(.anime, .characters) > .favourite:nth-child(-n+2)::after {
@@ -4161,7 +4066,7 @@ position: absolute;
 height: 100%;
 width: 70%;
     background: transparent;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     right: 0;
     margin: auto;
@@ -4181,7 +4086,7 @@ transform: translate3d(0%, -50px, 100px) scale(1.1);
   width: 100%;
   transition: all 0.5s ease-out;
   opacity: 0;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(0px) brightness(0.5);
 }
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap:is(.anime, .characters) > .favourite:nth-child(-n+2):hover::before {
@@ -4268,8 +4173,6 @@ opacity: 1;
 .page-content > .user .content.container > .favourites > .favourites.sorting > .favourites-wrap > .favourite::after {
 display: none;
 }
-
-/**/
 
 .page-content:has(.user):has(.content):has(> .favourites) ~ .wrap:has(.footer),
 .page-content:has(.user):has(.content):has(> .medialist) ~ .wrap:has(.footer),
@@ -4412,7 +4315,7 @@ content: 'Spotify Data';
 }
 
 .page-content:has(.user):has(.content):has(.user-reviews) ~ .wrap:has(.footer) > .footer > .container > .links section:nth-child(2):hover::after {
-content: 'F:\\Kachori\\spotify_data.jpg';
+content: '';
 color: rgb(255,0,60);
     font-size: 10px;
     position: fixed;
@@ -4474,7 +4377,7 @@ content: 'I don\'t know';
 }
 
 .page-content:has(.user):has(.content):has(.user-reviews) ~ .wrap:has(.footer) > .footer > .container > .links section:nth-child(3):hover::after {
-content: 'F:\\Kachori\\whatever.jpg';
+content: '';
     font-size: 10px;
     position: fixed;
     inset: 0;
@@ -4601,7 +4504,7 @@ content: 'ARCHIVE';
 }
 
 .page-content > .user .content.container > .user-reviews::after {
-        content: '◮ Under Construction';
+        content: '◮ Some random stuffs';
     position: absolute;
     top: 35px;
     left: 0;
@@ -4686,7 +4589,7 @@ background-color: rgb(0,0,0,0.8);
 
 
 .page-content > .user .content.container > .user-reviews > .review-wrap:hover::after{
-content: 'F:\\Kachori\\anilist_wrapped_2023.jpg';
+content: '';
 font-size: 10px;
     position: fixed;
     inset: 0;
@@ -4748,7 +4651,7 @@ background-color: rgb(0,0,0,0.8);
 }
 
 .page-content > .user .content.container > .user-reviews > .no-reviews:hover::after {
-content: 'F:\\Kachori\\spotify_wrapped_2023.jpg';
+content: '';
 font-size: 10px;
 text-align: left;
     position: fixed;
@@ -4782,8 +4685,6 @@ transform: translateX(-100%);
 transform: translateX(0);
 }
 }
-
-/* filter group */
 
 .filter-group[data-v-170179fc] span[data-v-170179fc] {
   padding-right: 10px;
@@ -4895,9 +4796,6 @@ color: black !important;
 display: none;
 }
 
-/* filter group */
-
-
 .transparent > .wrap {
 margin: 0;
 position: relative;
@@ -4907,6 +4805,10 @@ z-index: 1;
 .transparent > .wrap .footer[data-v-0f519cab] {
 position: relative;
 background: black;
+}
+
+.transparent > .wrap .footer[data-v-0f519cab] > .container {
+position: relative;
 }
 
 .transparent > .wrap .footer[data-v-0f519cab] a {
@@ -4927,7 +4829,10 @@ color: rgb(var(--color-cyan));
     width: 100%;
 }
 
-.page-content:has(.user):has(.content.container):has(.user-social) ~ .wrap > .footer[data-v-0f519cab]::before,
+.page-content:has(.user):has(.content.container):has(.user-social) ~ .wrap > .footer[data-v-0f519cab]::before {
+background: linear-gradient(to bottom, rgb(0,20,20), black);   
+}
+
 .page-content:has(.user):has(.content.container):has(.activity-anime_list.full-width, .activity-manga_list.full-width) ~ .wrap > .footer[data-v-0f519cab]::before
 {
 background: linear-gradient(to bottom, rgb(30,0,0), black);   
@@ -4959,6 +4864,7 @@ position: absolute;
     margin: auto;
     top: -5px;
 left: -45px;
+display: none;
 }
 
 .transparent > .wrap > .footer a:hover::before {
@@ -5192,8 +5098,6 @@ display: none !important;
 .hohColourPicker {
 display: none !important;
 }
-
-/* custom badges */
 
 .media[href="/anime/99750/I-Want-to-Eat-Your-Pancreas/"] {
 background-image: url("https://steamuserimages-a.akamaihd.net/ugc/955225420063844188/1B90234E4E68C2608AEBA700E3E331B0E8BFE969/?imw=1024&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false") !important;
@@ -5454,7 +5358,14 @@ backdrop-filter: blur(10px);
 }
 
 #app .tooltip > .title {
+background: rgba(var(--color-overlay),0.6);
+color: rgba(var(--color-text));
 border-radius: 0;
+display: none;
+}
+
+#app .tooltip > .title:has(strong) {
+display: block;
 }
 
 #app .tooltip > .title > strong {
@@ -5468,6 +5379,14 @@ font-size: 0;
 #app .tooltip > .title > strong::after {
 content: 'Dates';
 font-size: 13px;
+}
+
+#app .tooltip > .content {
+display: none;
+}
+
+#app .tooltip > .content:has(.prev-name-container) {
+display: block;
 }
 
 #app .tooltip > .content > .prev-name-container {
@@ -5603,4 +5522,22 @@ cursor: pointer;
 
 .markdown-editor>div:hover {
 opacity: 1;
+}
+
+.page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown > .el-dropdown-link {
+position: relative;
+bottom: -35px;
+margin-bottom: 30px;
+}
+
+.markdown-editor > [title="Image"], .markdown-editor > [title="Youtube Video"], .markdown-editor > [title="WebM Video"] {
+    color: rgba(var(--color-red));
+}
+
+div.wrap:has(div.small) {
+border-right: 6px solid rgb(255,0,60) !important;
+}
+
+.v-modal {
+display: none;
 }

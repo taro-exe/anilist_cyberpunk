@@ -1,3 +1,7 @@
+/* SO, MY CSS IS QUITE UNORGANIZED WITH LOTS OF REDUNDANT LINES. I DIDN'T KNOW OTHERS COULD VIEW IT LOL. WITH OVER 5000 LINES ALREADY, TIDYING UP FEELS LIKE A DAUNTING TASK. I BUILT IT FROM SCRATCH WITHOUT USING ANY TEMPLATES. ANYWAYS, JUST GIVE ME A HEADS UP IF YOU'RE GONNA COPY SOMETHING OR NEED A HAND. */
+
+/*--------------------------------------*/
+
 @import url(https://db.onlinewebfonts.com/c/335787aa6f57d71cabe8eb5dc89c6d6b?family=Blender+Pro+Book);
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&family=Tomorrow:wght@600&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
@@ -11,24 +15,25 @@ font-weight:400;
 src:url(https://www.cyberpunk.net/build/fonts/BlenderPro-Book-a6763c9a.woff2) format("woff2"),url(https://www.cyberpunk.net/build/fonts/BlenderPro-Book-a7182e33.woff) format("woff")
 }
 
-@keyframes animatedgradient {
-	0% {
-		background-position: center, 0% 50%;
-	}
-	50% {
-		background-position: center, 100% 50%;
-	}
-	100% {
-		background-position: center, 0% 50%;
-	}
-}
-
 html {
 scrollbar-color: rgb(252, 238, 10,0.5) transparent;
 }
 
+html::before {
+z-index: 1;
+    content: '';
+}
+
 html:has(.activity-anime_list.full-width, .activity-manga_list.full-width) {
 scrollbar-color: rgb(255, 0, 60,0.5) transparent;
+}
+
+html:has(.favourites):has(.delete) {
+scrollbar-color: rgb(var(--color-pink),0.5) transparent;
+}
+
+html:has(.user-social) {
+scrollbar-color: rgb(var(--color-cyan),0.5) transparent;
 }
 
 * {
@@ -80,15 +85,6 @@ font-family: "Blender Pro Book", BlenderProBook, sans-serif;
 
 ::-webkit-scrollbar-button {
 display: none !important;
-}
-
-@keyframes pinkchange {
-0% {
---color-pink: 214,0,255;
-}
-100% {
---color-pink: 0,255,255;
-}
 }
 
 body {
@@ -149,41 +145,6 @@ opacity: 1;
 width: 0;
 opacity: 0;
 }
-}
-
-@keyframes cyber-glitch-4 
-{
-    0% {visibility: visible;}
-    1% {visibility: hidden;}
-    2% {visibility: hidden;}
-    3% {visibility: visible;}
-
-    20% {visibility: visible;}
-    21% {visibility: hidden;}
-    24% {visibility: hidden;}
-    25% {visibility: visible;}
-
-    40% {visibility: visible;}
-    41% {visibility: hidden;}
-    42% {visibility: hidden;}
-    43% {visibility: visible;}
-
-    44% {visibility: visible;}
-    45% {visibility: hidden;}
-    46% {visibility: hidden;}
-    47% {visibility: visible;}
-
-    60% {visibility: visible;}
-    61% {visibility: hidden;}
-    64% {visibility: hidden;}
-    65% {visibility: visible;}
-
-    70% {visibility: visible;}
-    71% {visibility: hidden;}
-    72% {visibility: hidden;}
-    73% {visibility: visible;}
-    
-    100% {visibility: visible;}
 }
 
 #nav {
@@ -527,7 +488,7 @@ overflow: hidden;
     backdrop-filter: brightness(0.85);
     opacity: 0;
     z-index: 1;
-    animation: arrive 3s ease-in-out 1s forwards;
+    animation: arrive 5s ease-in-out 1s forwards;
 }
 
 
@@ -539,7 +500,7 @@ height: 100dvh;
 width: 100dvw;
 position: relative;
 display: block;
-animation: backgroundzoom 50s linear infinite;
+animation: backgroundzoom 30s linear infinite;
 animation-direction: alternate;
 overflow: hidden;
 }
@@ -549,7 +510,7 @@ overflow: hidden;
 background-size: 100%;
 }
 100% {
-background-size: 120%;
+background-size: 110%;
 }
 }
 
@@ -614,6 +575,7 @@ content: url(https://i.imgur.com/4uf7vCq.png);
 content: url(https://imgur.com/R7u2Xl8.png);
 content: url(https://imgur.com/1OVKeqi.png);
 content: url(https://i.imgur.com/ISQBYy9.png);
+content: url(https://i.imgur.com/V8nKuEI.png);
 position: absolute;
 inset: 0;
 margin: auto;
@@ -629,6 +591,7 @@ max-width: unset;
 height: 350px;
 width: 350px;
 z-index: 2;
+filter: contrast(1.5);
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper {
@@ -727,20 +690,6 @@ font-size: 20px;
 color: rgb(var(--color-cyan));
 font-weight: 100;
 filter: drop-shadow(0px 0px 10px black);
-}
-
-@keyframes postfix {
-0%, 45% {
-content: '━━ ぼんやりさん ━━';
-opacity: 1;
-}
-50% {
-opacity: 0;
-}
-55%,100% {
-content: '━━ Captain Clumsy ━━';
-opacity: 1;
-}
 }
 
 .page-content > .user .header-wrap .banner .container .banner-content .name-wrapper:hover .name::after {
@@ -906,7 +855,6 @@ color: rgb(var(--color-cyan));
 }
 
 .page-content > .user .header-wrap .nav-wrap .nav.container > .router-link-active {
-
 width: 180px;
 }
 
@@ -931,8 +879,7 @@ width: 180px;
 
 .page-content > .user .header-wrap .nav-wrap .nav.container > .link:hover::after,
 .page-content > .user .header-wrap .nav-wrap .nav.container > .router-link-active::after {
-  animation: glitch 1s infinite;
-  animation-timing-function:steps(2,end);
+  animation: glitch 1s steps(2,end) infinite;
 }
 
 @keyframes glitch {
@@ -1184,8 +1131,6 @@ color: cyan;
     white-space: nowrap;
 }
 
-
-
 #nav:not(.transparent) ~ .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://kachori.carrd.co/"] {
 display: none;
 }
@@ -1250,9 +1195,6 @@ left: -180px;
 animation: none;
 } 
 
-.page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links]:hover {
-}
-
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown *[data-links]::before {
     content: '';
     position: absolute;
@@ -1282,8 +1224,8 @@ animation: spin 9s linear infinite;
 .page-content > .user .content.container .overview .section:first-child > .about > .content-wrap > .markdown a[href="https://sptfy.com/kachori"] {
 background: url(https://i.imgur.com/1HhhjFH.png) center/cover no-repeat;
 background: url(https://i.imgur.com/61PgFd9.gif) center/cover no-repeat;
-    height: 28px;
-    width: 28px;
+    height: 25px;
+    width: 25px;
     display: block;
     position: absolute;
     transform: translate(-197px, -18px);
@@ -1313,8 +1255,8 @@ content: 'LISTENING ON SPOTIFY';
     height: 19px;
     display: block;
     width: 145px;
-    left: -215px;
-    top: -27px;
+    left: -218px;
+    top: -29px;
     position: absolute;
     pointer-events: none;
     padding-right: 20px;
@@ -1522,11 +1464,12 @@ white-space: nowrap;
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::before, .page-content > .user .content.container .overview .section .desktop:nth-child(2) > .activity-history::after  {
 display: inline-block;
-    content: 'Belle journée ';
+    content: '꽃길만 걷자 ';
     white-space: pre;
     color: rgb(var(--color-text),0.2);
     -webkit-text-stroke: 2px rgb(var(--color-text),0.6);
-    font-size: 100px;
+    font-size: 95px;
+    font-weight: bolder;
     font-family: 'Tomorrow';
     animation: slide 20s linear infinite;
     width: max-content;
@@ -1593,10 +1536,6 @@ display: none;
 display: none !important;
 }
 
-.page-content > .user .content.container .overview .section .desktop:nth-child(3) {
-
-}
-
 .page-content > .user .content.container .overview .section .desktop:nth-child(3) * {
 border-radius: 0;
 }
@@ -1631,6 +1570,7 @@ opacity: 1;
 .page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre > .name {
 color: rgb(var(--color-text));
 font-size: 1.1em;
+cursor: pointer;
 }
 
 .page-content > .user .content.container .overview .section .desktop:nth-child(3) > .genre-overview > .genres > .genre:first-child > .name {
@@ -1822,6 +1762,22 @@ border: 2px solid rgb(var(--color-cyan),0.3);
 animation: none;
 }
 
+.page-content > .user .content.container .overview .section .desktop:nth-child(9)::before {
+content: '';
+    top: 8px;
+    left: 8px;
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background: inherit;
+    background-size: 545%;
+    background-position: -15px;
+    filter: blur(3px) contrast(2) brightness(1.5);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    display: none;
+}
+
+
 .page-content > .user .content.container .overview .section .desktop:nth-child(9)::after {
 content: ' ';
     position: absolute;
@@ -1835,34 +1791,7 @@ content: ' ';
     left: 0;
     z-index: -1;
     filter: blur(20px) brightness(1.5) saturate(1.5);
-    opacity: 0.4;
-}
-
-@keyframes opacityanimation {
-0% {
-opacity: 0.2;
-}
-100% {
-opacity: 0.4;
-}
-}
-
-@keyframes cyber-glitch-0
-{
-    0% {filter: blur(0) brightness(100%) contrast(100%);}
-    2% {filter: blur(.05rem) brightness(120%) contrast(120%);}
-    4% {filter: blur(.10rem) brightness(150%) contrast(150%);}
-    6% {filter: blur(.20rem) brightness(170%) contrast(170%);}
-    8% {filter: blur(0) brightness(100%) contrast(100%);}
-    10% {filter: blur(0) brightness(100%) contrast(100%);}
-    60% {filter: blur(0) brightness(100%) contrast(100%);}
-    62% {filter: blur(.05rem) brightness(60%) contrast(100%);}
-    64% {filter: blur(.10rem) brightness(40%) contrast(100%);}
-    66% {filter: blur(0) brightness(100%) contrast(100%);}
-    68% {filter: blur(.05rem) brightness(60%) contrast(100%);}
-    70% {filter: blur(.10rem) brightness(40%) contrast(100%);}
-    72% {filter: blur(0) brightness(100%) contrast(100%);}
-    100% {filter: blur(0) brightness(100%) contrast(100%);}
+    opacity: 0.25;
 }
 
 @keyframes cyber-glitch-2 {
@@ -1917,20 +1846,6 @@ width: 0;
 100% {
 width: 200px;
 }
-}
-
-.page-content > .user .content.container .overview .section .desktop:nth-child(9)::before {
-content: 'listening on spotify';
-top: 7px;
-left: 5px;
-display: block;
-font-size: 0px;
-position: relative;
-color: rgb(var(--color-text-light));
-background: rgb(255,0,0,0);
-padding: 3px 0;
-width: 100%;
-text-align: center;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) {
@@ -2342,7 +2257,7 @@ content: ':: RULES, GUIDELINES, YADAYADA :: \
 \a 2. English only \
 \a 3. Spam all you want \
 \a 4. Even if you don\'t have anything specific to talk about, feel free to drop a hello. I\'d appreciate that. \
-\a 5. Turn data cache off (You\'ll find out why)';
+\a 5. Turn data cache off';
 display: block;
     font-size: 13px;
     text-transform: none !important;
@@ -2360,10 +2275,12 @@ display: block;
     border: 1px solid rgb(var(--color-cyan),0.5);
 position: relative;
 bottom: -40px;
+opacity: 0.5;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit .rules-notice:hover::after {
 max-height: 180px;
+opacity: 1;
 }
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .activity-edit:has(.preview) > .rules-notice::after {
@@ -2469,6 +2386,7 @@ color: rgb(var(--color-text));
 background: rgb(var(--color-background),0.5);
 animation: arrive6 0.2s forwards;
 border: 1px solid rgb(var(--color-blue),0.5);
+border-radius: 0;
 overflow: visible;
 }
 
@@ -2491,7 +2409,7 @@ position: absolute;
     top: 0;
     background: rgb(var(--color-background),0.5);
     border: 1px solid rgb(var(--color-blue));
-    border-radius: 5px;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -2604,9 +2522,17 @@ width: max-content;
 overflow: hidden;
 }
 
+.el-dialog__wrapper.list-editor-wrap > .el-dialog {
+  margin-top: 12vh !important;
+}
+
 .el-dialog__wrapper {
 backdrop-filter: blur(30px) brightness(0.3);
 background: rgb(var(--color-cyan), 0.1);
+}
+
+.el-dialog__wrapper > .el-dialog {
+box-shadow: none;
 }
 
 .el-dialog__body {
@@ -3275,8 +3201,7 @@ justify-content: center;
 margin-top: 90px;
 }
 
-.page-content > .user > .content.container > .user-social:not(.listView) > .user-follow > .wrap .follow-card,
-.page-content > .user > .content.container > .user-social:not(.listView) >  .hohSocialContent .follow-card {
+.page-content > .user > .content.container > .user-social:not(.listView) > div:is(.user-follow, .hohSocialContent) .follow-card {
     display: flex;
     background-color: rgb(0,0,0,0.1);
     height: 100px;
@@ -3297,6 +3222,10 @@ margin-top: 90px;
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .filters > .theme-switch {
 display: none;
+}
+
+.page-content > .user > .content.container > .user-social:not(.listView) > .filters > .filter-group::after {
+content: '';
 }
 
 .page-content > .user > .content.container > .user-social:not(.listView) > .filters > .filter-group {
@@ -3443,7 +3372,7 @@ position: relative;
 padding-inline: 5px;
     font-size: 0.7em;
     display: block;
-    border-top: 2px solid rgb(0,255,255);
+    border-top: 2px solid rgb(var(--color-blue));
     text-shadow: none;
   }
 
@@ -3982,7 +3911,7 @@ color: rgb(var(--color-pink));
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap > .favourite {
     border-radius: 0;
-    filter: brightness(0.5);
+    filter: brightness(0.35);
     transition: all 0.3s ease-in-out;
     border-width: 2px;
     border-style: solid;
@@ -3994,8 +3923,8 @@ color: rgb(var(--color-pink));
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap > .favourite:hover {
 filter: brightness(1);
-transform: scale(1.2);
 animation: borderanimation3 1s linear infinite;
+scale: 1.2;
 }
 
 @keyframes borderanimation3 {
@@ -4037,7 +3966,7 @@ z-index: 2;
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap > .favourite:hover::after {
 content: '';
-background: linear-gradient(to bottom, rgb(0,0,0), transparent 30%, rgb(0,0,0));
+background: linear-gradient(to bottom, rgb(0,0,0), transparent 50%, rgb(0,0,0));
 backdrop-filter: none;
 }
 
@@ -4053,11 +3982,9 @@ border-width: 2px;
     border-style: solid;
     border-image: linear-gradient(to bottom, black, rgb(var(--color-blue))) 1;
 animation: none;
-    transform-style: preserve-3d;
-    transform: perspective(1800px) rotateX(10deg);
-    scale: 1.08;
     z-index: 100;
    border-bottom: 3px solid rgb(var(--color-pink));
+scale: none;
 }
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap:is(.anime, .characters) > .favourite:nth-child(-n+2)::after {
@@ -4092,6 +4019,7 @@ transform: translate3d(0%, -50px, 100px) scale(1.1);
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap:is(.anime, .characters) > .favourite:nth-child(-n+2):hover::before {
 height: 123%;
 opacity: 1;
+backdrop-filter: blur(3px);
 }
 
 .page-content > .user .content.container > .favourites > .favourites .favourites-wrap:is(.anime) > .favourite:first-child[href="/anime/2471/Doraemon/"],
@@ -4986,10 +4914,6 @@ transition: all 0.3s ease-in-out;
     color: rgb(var(--color-text));
   }
 
-  .markdown .markdown-spoiler.spoiler-visible span img {
-    
-  }
-
   .markdown .markdown-spoiler.spoiler-visible i {
     color: red;
     top: 20px;
@@ -5199,7 +5123,7 @@ font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Ca
 
 .header .name[href="/user/Leafer/"]::after {
 content: '';
-background: url(https://media.tenor.com/0CnzoZmYPm8AAAAj/leaves-fall.gif) center/230% no-repeat;
+background: url(https://i0.wp.com/i.pinimg.com/originals/25/1d/49/251d49935a0566be9ec2b29bde7ddfc7.gif) center/80% no-repeat;
     background-color: rgb(var(--color-foreground));
 display: inline-block;
 }
@@ -5511,7 +5435,7 @@ cursor: pointer;
     transition: .2s;
     border: 1px solid rgb(var(--color-blue), 0.5);
     color: rgb(var(--color-blue));
-    border-radius: 10px;
+    border-radius: 0px;
     width: 30px;
     height: 30px;
     display: flex;
@@ -5526,8 +5450,13 @@ opacity: 1;
 
 .page-content > .user .content.container .overview .section:nth-child(2) .activity-feed-wrap > .section-header > .el-dropdown > .el-dropdown-link {
 position: relative;
-bottom: -35px;
-margin-bottom: 30px;
+    bottom: -18px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background: black;
+    z-index: 10;
+    padding-left: 25px;
+    padding-right: 15px;
 }
 
 .markdown-editor > [title="Image"], .markdown-editor > [title="Youtube Video"], .markdown-editor > [title="WebM Video"] {
@@ -5540,4 +5469,8 @@ border-right: 6px solid rgb(255,0,60) !important;
 
 .v-modal {
 display: none;
+}
+
+.list-editor-wrap .list-editor {
+box-shadow: none;
 }
